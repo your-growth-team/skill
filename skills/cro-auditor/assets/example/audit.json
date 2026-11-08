@@ -1,0 +1,742 @@
+{
+ "meta": {
+  "brand": "UFF! Perfumes",
+  "page_title": "DESIRED",
+  "page_url": "uffco.com/products/desired",
+  "site_url": "https://www.uffco.com",
+  "date": "2026-11-03",
+  "category": "Fragrance · inspired-by Extrait",
+  "market": "India",
+  "price_tier": "₹399–1,299 · blind buy, non-returnable",
+  "decision_type": "Sensory purchase, decided on 'does it smell like the original and will it last'",
+  "traffic": "Assumed mostly paid social (Instagram reels)",
+  "verdict": "Shoppers buy DESIRED because it promises the Wanted by Night experience at a fraction of the price, but the page whispers that promise in small italics and locks the proof (Extrait concentration, 7h longevity, strong projection, night wear) inside an image and a closed accordion. Meanwhile a 15-tier price ticker, a 3-hour countdown that disagrees with the cart's 3-day one, image-based offer cards and two competing buy buttons fight for attention, and the add-to-cart sits below large note photos. The proposal leads with the inspired-by promise and concrete performance facts, shows price per ml on every size, offers 20 ml as a low-risk first try for a non-returnable product, gives one clear button, and keeps every policy intact.",
+  "start_device": "mobile"
+ },
+ "brand": {
+  "tokens": {
+   "bg": "#ffffff",
+   "surface": "#f6f4f1",
+   "ink": "#141212",
+   "ink-2": "#4d4845",
+   "muted": "#736d68",
+   "line": "#e6e1db",
+   "brand": "#872824",
+   "brand-tint": "#f8eceb",
+   "amber": "#f6c362",
+   "cta": "#141212",
+   "on-cta": "#ffffff",
+   "ph": "#e8e5e0",
+   "f-display": "'Archivo', 'Arial Narrow', sans-serif",
+   "f-body": "'Hanken Grotesk', 'Helvetica Neue', Arial, sans-serif"
+  },
+  "font_links": [
+   "https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,500..900&family=Hanken+Grotesk:wght@400;500;600;700&display=swap"
+  ]
+ },
+ "design_plan": {
+  "direction": "Bold nightlife type on a calm retail canvas: the brand's maroon at the edges (bar, header, accents), a neutral decision zone, and one memorable moment: the product name and a 7H · STRONG · NIGHT spec bar in a heavy condensed display face that echoes the brand's uppercase product names.",
+  "type": "Archivo (condensed, 800) for product names and section heads; Hanken Grotesk for body and UI. Mobile scale 12/14/16/20/28/52; desktop 13/15/17/24/30/84. Body 16px on mobile.",
+  "color": "Ink #141212 on white; warm surface #F6F4F1; brand maroon #872824 for tags, savings and links; amber #F6C362 only for 'Best value'; black reserved for the single primary button.",
+  "layout": "Mobile: one column, 16px gutters, 8px rhythm. Desktop: 1200px container, 1.12 : 1 gallery grid and sticky buy box, 56px gap.",
+  "checks": "Single primary CTA; 44px+ touch targets; WCAG AA contrast; one SVG icon family at 1.6 stroke; no emoji icons; tabular figures for prices."
+ },
+ "before": {
+  "mobile": {
+   "screenshots": [],
+   "note": "Only desktop screenshots were shared. Share mobile screenshots to add the current mobile page here."
+  },
+  "desktop": {
+   "screenshots": [
+    {
+     "src": "asset:before-1.jpg",
+     "caption": "First screen: ticker, header, countdown, title, price, sizes, engraving, notes"
+    },
+    {
+     "src": "asset:before-2.jpg",
+     "caption": "Second screen: buttons, offer cards, accordions, fragrance-profile image"
+    },
+    {
+     "src": "asset:before-3.jpg",
+     "caption": "Third screen: video reels with other scents"
+    }
+   ],
+   "markers": [
+    {
+     "screenshot": 0,
+     "box": [
+      0,
+      0,
+      100,
+      3.6
+     ],
+     "change": "C1",
+     "label": "15-tier price ticker"
+    },
+    {
+     "screenshot": 0,
+     "box": [
+      89.3,
+      4.2,
+      5.0,
+      4.8
+     ],
+     "change": "C2",
+     "label": "Account and wishlist icons"
+    },
+    {
+     "screenshot": 0,
+     "box": [
+      12.5,
+      11.0,
+      75.5,
+      4.6
+     ],
+     "change": "C3",
+     "label": "Nav labels with emoji"
+    },
+    {
+     "screenshot": 0,
+     "box": [
+      0,
+      16.8,
+      100,
+      3.5
+     ],
+     "change": "C4",
+     "label": "3-hour countdown (cart shows a 3-day one)"
+    },
+    {
+     "screenshot": 0,
+     "box": [
+      51.5,
+      27.0,
+      13.8,
+      2.6
+     ],
+     "change": "C5",
+     "label": "Inspired-by line in small italics"
+    },
+    {
+     "screenshot": 0,
+     "box": [
+      51.5,
+      30.2,
+      15.2,
+      2.5
+     ],
+     "change": "C5",
+     "label": "Vague badges: super lasting, strong projection"
+    },
+    {
+     "screenshot": 0,
+     "box": [
+      11.3,
+      21.9,
+      37,
+      59.2
+     ],
+     "change": "C10",
+     "label": "Gallery of two images"
+    },
+    {
+     "screenshot": 0,
+     "box": [
+      51.5,
+      36.2,
+      16.2,
+      5.4
+     ],
+     "change": "C9",
+     "label": "No price per ml (unit price field is empty)"
+    },
+    {
+     "screenshot": 0,
+     "box": [
+      51.5,
+      43.9,
+      16.3,
+      7.8
+     ],
+     "change": "C12",
+     "label": "Size tiles without prices"
+    },
+    {
+     "screenshot": 0,
+     "box": [
+      51.6,
+      53.9,
+      37.4,
+      10.2
+     ],
+     "change": "C14",
+     "label": "Engraving box before the button"
+    },
+    {
+     "screenshot": 0,
+     "box": [
+      51.6,
+      66.5,
+      37.4,
+      23.8
+     ],
+     "change": "C17",
+     "label": "Large note photos push the button down"
+    },
+    {
+     "screenshot": 0,
+     "box": [
+      0,
+      92.0,
+      100,
+      8.0
+     ],
+     "change": "C19",
+     "label": "Sticky bar visible before the inline button"
+    },
+    {
+     "screenshot": 1,
+     "box": [
+      11.3,
+      20.7,
+      37,
+      59
+     ],
+     "change": "C11",
+     "label": "Longevity, projection and occasion locked in an image"
+    },
+    {
+     "screenshot": 1,
+     "box": [
+      51.6,
+      16.6,
+      37.4,
+      5.0
+     ],
+     "change": "C15",
+     "label": "Add to cart (black)"
+    },
+    {
+     "screenshot": 1,
+     "box": [
+      51.6,
+      23.4,
+      37.4,
+      5.3
+     ],
+     "change": "C15",
+     "label": "Buy now (maroon) competes with add to cart"
+    },
+    {
+     "screenshot": 1,
+     "box": [
+      51.6,
+      31.4,
+      37.4,
+      11.7
+     ],
+     "change": "C13",
+     "label": "Offer cards as images with tiny text"
+    },
+    {
+     "screenshot": 1,
+     "box": [
+      51.6,
+      46.9,
+      37.4,
+      5.4
+     ],
+     "change": "C18",
+     "label": "Label-style accordions"
+    },
+    {
+     "screenshot": 1,
+     "box": [
+      51.6,
+      53.8,
+      37.4,
+      5.5
+     ],
+     "change": "C17",
+     "label": "'Scent Notes' accordion is empty"
+    }
+   ]
+  }
+ },
+ "after": {
+  "css": ".proto .muted{color:var(--muted)}\n.proto .u-bar{display:flex;align-items:center;justify-content:space-between;height:36px;padding:0 14px;background:var(--brand-tint);color:var(--brand);font:600 12.5px/1 var(--f-body);letter-spacing:.01em}\n.proto .u-bar svg{opacity:.65}\n.proto .logo{height:30px;width:auto}\n.proto .t-insp{display:inline-flex;align-items:center;gap:7px;height:30px;padding:0 12px 0 10px;border:1.5px solid var(--brand);border-radius:999px;color:var(--brand);font:500 13px/1 var(--f-body)}\n.proto .t-insp b{font-weight:700}\n.proto .t-name{font-family:var(--f-display);font-weight:800;font-stretch:72%;text-transform:uppercase;letter-spacing:-.005em;line-height:.9;margin-top:14px;color:var(--ink)}\n.proto .t-sub{font-size:14px;color:var(--ink-2);margin-top:8px}\n.proto .t-desc{margin-top:12px;color:var(--ink)}\n.proto .t-rate{display:flex;align-items:center;gap:8px;margin-top:12px;font-size:13px}\n.proto .stars{display:inline-flex;color:#d99a00;gap:1px}\n.proto .t-price{display:flex;align-items:baseline;flex-wrap:wrap;gap:6px 10px;margin-top:14px;font-variant-numeric:tabular-nums}\n.proto .now{font:700 26px/1 var(--f-body);letter-spacing:-.01em}\n.proto .was{color:var(--muted);text-decoration:line-through;font-size:15px}\n.proto .save{align-self:center;background:var(--brand);color:#fff;font:700 11.5px/1 var(--f-body);padding:5px 7px;border-radius:3px;letter-spacing:.02em}\n.proto .unit{margin-left:auto;font-size:13px;color:var(--muted)}\n.proto .fine{font-size:12px;color:var(--muted);margin-top:4px}\n.proto .ph{--ph-bg:var(--ph);border-radius:4px}\n.proto .ph.vid{--ph-ar:9/16}\n.proto .ph.vid .play{position:absolute;left:50%;top:42%;width:40px;height:40px;transform:translate(-50%,-50%);color:#fff;filter:drop-shadow(0 2px 6px rgba(0,0,0,.25))}\n.proto .spec{display:grid;grid-template-columns:repeat(3,1fr);border-top:2px solid var(--ink);border-bottom:1px solid var(--line)}\n.proto .spec div{padding:12px 0 12px 12px}\n.proto .spec div:first-child{padding-left:0}\n.proto .spec div+div{border-left:1px solid var(--line)}\n.proto .spec b{display:block;font-family:var(--f-display);font-weight:800;font-stretch:72%;font-size:28px;line-height:1;text-transform:uppercase}\n.proto .spec span{display:flex;gap:5px;align-items:center;font-size:12px;color:var(--muted);margin-top:6px}\n.proto .o-label{display:flex;justify-content:space-between;align-items:baseline;font-size:14px}\n.proto .o-label b{font-weight:700}\n.proto .o-label a{font-size:13px;text-decoration:underline;text-underline-offset:3px;color:var(--ink-2)}\n.proto .sizes{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:12px}\n.proto .size{position:relative;border:1px solid var(--line);border-radius:6px;padding:13px 11px 11px;min-height:86px;display:flex;flex-direction:column;gap:3px;font-variant-numeric:tabular-nums;background:var(--bg)}\n.proto .size b{font:700 16px/1.15 var(--f-body)}\n.proto .size .p{font-size:14px}\n.proto .size .pm{font-size:12px;color:var(--muted)}\n.proto .size.on{border:2px solid var(--ink);padding:12px 10px 10px;background:var(--surface)}\n.proto .size .tag{position:absolute;top:-9px;left:10px;background:var(--amber);color:#3a2700;font:700 10.5px/1 var(--f-body);padding:4px 6px;border-radius:3px;letter-spacing:.02em}\n.proto .try{display:flex;gap:8px;align-items:flex-start;margin-top:14px;font-size:13.5px;color:var(--ink-2)}\n.proto .try svg{color:var(--brand);margin-top:2px}\n.proto .try a,.proto .offer a,.proto .assure a{color:var(--brand);font-weight:700;text-decoration:underline;text-underline-offset:3px}\n.proto .offer{background:var(--brand-tint);border-radius:6px;padding:2px 14px}\n.proto .offer li{display:flex;gap:11px;padding:11px 0;font-size:13.5px;line-height:1.45}\n.proto .offer li+li{border-top:1px dashed rgba(135,40,36,.28)}\n.proto .offer svg{color:var(--brand);margin-top:2px}\n.proto .offer b{display:block;font-weight:700;color:var(--ink)}\n.proto .code{font:700 12.5px/1.6 ui-monospace,Menlo,monospace;letter-spacing:.04em;border:1px dashed var(--brand);border-radius:4px;padding:0 6px;background:#fff;color:var(--brand)}\n.proto .engr{display:flex;gap:12px;align-items:center;border:1px solid var(--line);border-radius:6px;padding:12px 14px;min-height:60px}\n.proto .engr .box{width:20px;height:20px;border:1.5px solid var(--ink);border-radius:4px;flex:none}\n.proto .engr b{display:block;font-size:14px;font-weight:700}\n.proto .engr small{display:block;font-size:12px;color:var(--muted);margin-top:1px}\n.proto .engr svg{margin-left:auto}\n.proto .buy{display:flex;gap:8px}\n.proto .qty{display:flex;align-items:center;border:1px solid var(--line);border-radius:6px;height:52px;font:600 16px/1 var(--f-body)}\n.proto .qty button{width:42px;height:100%;display:grid;place-items:center}\n.proto .qty span{min-width:18px;text-align:center}\n.proto .buy .cta{flex:1;height:52px;background:var(--cta);color:var(--on-cta);border-radius:6px;font:700 16px/1 var(--f-body);letter-spacing:.01em}\n.proto .buy2{width:100%;height:48px;border:1.5px solid var(--ink);border-radius:6px;font:600 15px/1 var(--f-body);display:flex;align-items:center;justify-content:center;gap:6px}\n.proto .buy2 small{font-weight:500;color:var(--muted);font-size:13px}\n.proto .assure{display:flex;flex-direction:column;gap:11px;font-size:14px}\n.proto .assure li{display:flex;gap:10px;align-items:center}\n.proto .assure svg{color:var(--muted)}\n.proto .notes{background:var(--surface);border-radius:8px;padding:20px 18px 18px}\n.proto .notes h3,.proto .vids-h{font-family:var(--f-display);font-weight:800;font-stretch:72%;text-transform:uppercase;font-size:24px;line-height:1;letter-spacing:.005em}\n.proto .tier{display:grid;grid-template-columns:62px 1fr;align-items:baseline;padding:11px 0;border-top:1px solid var(--line);font-size:15px}\n.proto .notes h3+.tier{margin-top:14px}\n.proto .tier span{font:700 11px/1 var(--f-body);letter-spacing:.09em;text-transform:uppercase;color:var(--brand)}\n.proto .accords{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}\n.proto .accords em{font-style:normal;font-size:12.5px;border:1px solid var(--line);background:var(--bg);border-radius:999px;padding:4px 10px}\n.proto .faq{border-top:1px solid var(--line)}\n.proto .faq details{border-bottom:1px solid var(--line)}\n.proto .faq summary{list-style:none;min-height:56px;display:flex;align-items:center;justify-content:space-between;gap:12px;font:600 15.5px/1.3 var(--f-body);cursor:pointer}\n.proto .faq summary::-webkit-details-marker{display:none}\n.proto .faq details[open] summary svg{transform:rotate(180deg)}\n.proto .faq summary svg{transition:transform .2s ease-out}\n.proto .faq .a{padding:0 0 16px;font-size:14.5px;color:var(--ink-2);max-width:62ch}\n.proto .vids{display:flex;gap:10px;overflow:hidden}\n",
+  "mobile": {
+   "html": "<div class=\"u-bar\" data-change=\"C1\"><i data-icon=\"chevron-left\" class=\"s\"></i><span>Bundle any scents: 2 × 50 ml at ₹699 each</span><i data-icon=\"chevron-right\" class=\"s\"></i></div>\n<header class=\"m-hdr\" data-change=\"C2\"><button aria-label=\"Menu\"><i data-icon=\"menu\"></i></button><img class=\"logo\" src=\"asset:logo.png\" alt=\"UFF!\"><span class=\"r\"><button aria-label=\"Search\"><i data-icon=\"search\"></i></button><button aria-label=\"Bag\"><i data-icon=\"bag\"></i></button></span></header>\n\n<div class=\"tb\">\n  <span class=\"t-insp\" data-change=\"C5\"><i data-icon=\"sparkle\" class=\"s\"></i>Inspired by <b>Wanted by Night</b></span>\n  <h1 class=\"t-name\" data-change=\"C6\">Desired</h1>\n  <p class=\"t-sub\" data-change=\"C6\">Spiced &amp; fiery woody · Extrait de Parfum · For him</p>\n  <p class=\"t-desc\" data-change=\"C7\">Warm cinnamon, sweet mandarin and smoky tobacco. Built to rule the night.</p>\n  <div class=\"t-rate\" data-change=\"C8\"><span class=\"stars\"><i data-icon=\"star\" class=\"s\"></i><i data-icon=\"star\" class=\"s\"></i><i data-icon=\"star\" class=\"s\"></i><i data-icon=\"star\" class=\"s\"></i><i data-icon=\"star\" class=\"s\"></i></span><span class=\"needs-input\">[rating · review count]</span></div>\n  <div class=\"t-price\" data-change=\"C9\"><span class=\"now\">₹999</span><span class=\"was\">₹1,299</span><span class=\"save\">Save 23%</span><span class=\"unit\">50 ml · ₹19.98/ml</span></div>\n  <p class=\"fine\">Tax included.</p>\n</div>\n<div class=\"g-m\" data-change=\"C10\"><div class=\"ph main\"><span class=\"ph-n\">Image 1</span><span class=\"ph-t\">Hero bottle, night mood</span><span class=\"ph-d\">Bottle on a dark backdrop, warm amber rim light</span></div><div class=\"ph peek\"><span class=\"ph-n\">Image 2</span><span class=\"ph-t\">If you love Wanted by Night</span><span class=\"ph-d\">Accord-match card</span></div><button class=\"g-arrow\" aria-label=\"Next image\"><i data-icon=\"chevron-right\" class=\"s\"></i></button><button class=\"g-wish\" aria-label=\"Add to wishlist\"><i data-icon=\"heart\" class=\"s\"></i></button></div>\n<div class=\"g-thumbs\" data-change=\"C10\"><div class=\"ph mini on\"><span class=\"ph-n\">1</span></div><div class=\"ph mini\"><span class=\"ph-n\">2</span></div><div class=\"ph mini\"><span class=\"ph-n\">3</span></div><div class=\"ph mini\"><span class=\"ph-n\">4</span></div><div class=\"ph mini\"><span class=\"ph-n\">5</span></div><div class=\"ph mini\"><span class=\"ph-n\">6</span></div><div class=\"ph mini\"><span class=\"ph-n\">7</span></div></div>\n<div class=\"spec\" data-change=\"C11\"><div><b>7H</b><span><i data-icon=\"clock\" class=\"s\"></i>Longevity</span></div><div><b>Strong</b><span><i data-icon=\"wind\" class=\"s\"></i>Projection</span></div><div><b>Night</b><span><i data-icon=\"moon\" class=\"s\"></i>Best worn</span></div></div>\n<div class=\"opt\" data-change=\"C12\">\n  <div class=\"o-label\"><span><b>Select size:</b> 50 ml</span><a>Size guide</a></div>\n  <div class=\"sizes\">\n    <div class=\"size\"><b>20 ml</b><span class=\"p\">₹399</span><span class=\"pm\">₹19.95/ml</span></div>\n    <div class=\"size on\"><b>50 ml</b><span class=\"p\">₹999</span><span class=\"pm\">₹19.98/ml</span></div>\n    <div class=\"size\"><span class=\"tag\">Best value</span><b>100 ml</b><span class=\"p\">₹1,299</span><span class=\"pm\">₹12.99/ml</span></div>\n  </div>\n  <p class=\"try\"><i data-icon=\"flask\" class=\"s\"></i><span>New to this scent? Try the 20 ml first, or the <a>tester pack</a>.</span></p>\n</div>\n<ul class=\"offer\" data-change=\"C13\">\n  <li><i data-icon=\"layers\" class=\"s\"></i><span><b>Bundle any scents</b>2 × 50 ml at ₹699 each, 3 at ₹666 each. <a>Build your bundle</a></span></li>\n  <li><i data-icon=\"tag\" class=\"s\"></i><span><b>Prepaid offer</b>Extra 20% off prepaid orders with <span class=\"code\">DIWALI2026</span></span></li>\n</ul>\n<div class=\"engr\" data-change=\"C14\"><span class=\"box\"></span><span><b>Add free engraving</b><small>Up to 9 characters · 50 ml and 100 ml · ships in 2–3 business days</small></span><i data-icon=\"gift\" class=\"s muted\"></i></div>\n<div class=\"buy\" data-change=\"C15\"><div class=\"qty\"><button aria-label=\"Decrease\"><i data-icon=\"minus\" class=\"s\"></i></button><span>1</span><button aria-label=\"Increase\"><i data-icon=\"plus\" class=\"s\"></i></button></div><button class=\"cta\">Add to cart</button></div>\n<button class=\"buy2\" data-change=\"C15\">Buy now <small>· UPI &amp; cards</small></button>\n<ul class=\"assure\" data-change=\"C16\">\n  <li><i data-icon=\"sparkle\" class=\"s\"></i>Freshly made to order</li>\n  <li><i data-icon=\"truck\" class=\"s\"></i><span class=\"needs-input\">[Ships in X days]</span></li>\n  <li><i data-icon=\"chat\" class=\"s\"></i><span>Questions? <a>Chat with a product specialist</a></span></li>\n</ul>\n<section class=\"notes\" data-change=\"C17\"><h3>What it smells like</h3>\n  <div class=\"tier\"><span>Top</span><p>Cinnamon · Mandarin · Lavender</p></div>\n  <div class=\"tier\"><span>Heart</span><p>Red cedar · Incense · Cumin</p></div>\n  <div class=\"tier\"><span>Base</span><p>Tobacco · Cedarwood · Leather</p></div>\n  <div class=\"accords\"><em>Warm spicy</em><em>Cinnamon</em><em>Fruity</em><em>Woody</em><em>Sweet</em></div>\n</section>\n<div class=\"faq\" data-change=\"C18\"><details><summary>How long does it last?<i data-icon=\"chevron-down\" class=\"s\"></i></summary><p class=\"a\">Beast mode: an opulent Extrait concentration engineered to project deeply through the night. Around 7 hours of longevity with strong projection.</p></details><details><summary>When should I wear it?<i data-icon=\"chevron-down\" class=\"s\"></i></summary><p class=\"a\">Late evenings, clubbing, upscale lounges and cooler weather.</p></details><details><summary>How do I apply it?<i data-icon=\"chevron-down\" class=\"s\"></i></summary><p class=\"a\">Hold the bottle 6 inches from your garment and mist lightly on the collar, cuffs or shoulders. Keep the distance so the mist settles evenly and to avoid oil stains from the high concentration.</p></details><details><summary>What's in the bottle?<i data-icon=\"chevron-down\" class=\"s\"></i></summary><p class=\"a\">Extrait de Parfum. Made to order, freshly handcrafted after purchase. Shelf life 3 years from date of purchase. Ingredients: odouriferous alcoholic solution, DM water, dipropylene glycol, fragrance. Category: apparel perfume.</p></details><details><summary>Can I cancel or return it?<i data-icon=\"chevron-down\" class=\"s\"></i></summary><p class=\"a\">Regular orders can be cancelled within 1 hour of placement. Festive Sale orders cannot be cancelled once placed. Perfumes and samples/decants are non-returnable, non-refundable and non-exchangeable. For damaged or defective products, contact us within 2 business days of delivery with a mandatory unboxing video; approved refunds are subject to a 2.5% payment gateway fee.</p></details></div>\n<h3 class=\"vids-h\">See it in action</h3><div class=\"vids\"><div class=\"ph vid\"><span class=\"ph-n\">Video 1</span><i data-icon=\"play\" class=\"play\"></i><span class=\"ph-t\">First-spray reaction</span><span class=\"ph-d\">Real customer, 15 s</span></div><div class=\"ph vid\"><span class=\"ph-n\">Video 2</span><i data-icon=\"play\" class=\"play\"></i><span class=\"ph-t\">Still there at 2 a.m.?</span><span class=\"ph-d\">Longevity check across a night</span></div><div class=\"ph vid\"><span class=\"ph-n\">Video 3</span><i data-icon=\"play\" class=\"play\"></i><span class=\"ph-t\">Unboxing and engraving</span><span class=\"ph-d\">Gift-ready box</span></div></div>\n",
+   "css": ".proto[data-dev=\"mobile\"]{padding-bottom:40px}\n.proto .m-hdr{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;height:56px;padding:0 6px;background:var(--brand);color:#fff}\n.proto .m-hdr button{width:44px;height:44px;display:grid;place-items:center}\n.proto .m-hdr .r{display:flex;justify-content:flex-end}\n.proto .tb{padding:20px 16px 0}\n.proto[data-dev=\"mobile\"] .t-name{font-size:56px}\n.proto[data-dev=\"mobile\"] .t-desc{font-size:16px;max-width:33ch}\n.proto .g-m{position:relative;display:flex;gap:8px;padding:20px 0 0 16px;overflow:hidden}\n.proto .g-m .main{flex:0 0 80%;--ph-ar:4/5}\n.proto .g-m .peek{flex:0 0 40%;--ph-ar:4/5}\n.proto .g-arrow{position:absolute;left:calc(80% - 8px);top:calc(20px + 38%);width:40px;height:40px;border-radius:20px;background:#fff;box-shadow:0 2px 8px rgba(0,0,0,.16);display:grid;place-items:center}\n.proto .g-wish{position:absolute;left:calc(80% - 42px);top:32px;width:40px;height:40px;border-radius:20px;background:rgba(255,255,255,.9);display:grid;place-items:center}\n.proto .g-thumbs{display:flex;gap:6px;padding:10px 16px 0}\n.proto .g-thumbs .ph{width:42px;--ph-ar:1/1;border:1px solid transparent}\n.proto .g-thumbs .ph.on{border:1.5px solid var(--ink)}\n.proto[data-dev=\"mobile\"] .spec{margin:22px 16px 0}\n.proto[data-dev=\"mobile\"] .opt{margin:24px 16px 0}\n.proto[data-dev=\"mobile\"] .offer{margin:20px 16px 0}\n.proto[data-dev=\"mobile\"] .engr{margin:10px 16px 0}\n.proto[data-dev=\"mobile\"] .buy{margin:20px 16px 0}\n.proto[data-dev=\"mobile\"] .buy2{margin:8px 16px 0;width:calc(100% - 32px)}\n.proto[data-dev=\"mobile\"] .assure{margin:18px 16px 0}\n.proto[data-dev=\"mobile\"] .notes{margin:32px 16px 0}\n.proto[data-dev=\"mobile\"] .faq{margin:28px 16px 0}\n.proto[data-dev=\"mobile\"] .vids-h{margin:36px 16px 14px}\n.proto[data-dev=\"mobile\"] .vids{padding:0 16px}\n.proto[data-dev=\"mobile\"] .vids .ph{flex:0 0 44%}\n"
+  },
+  "desktop": {
+   "html": "<div class=\"u-bar\" data-change=\"C1\"><i data-icon=\"chevron-left\" class=\"s\"></i><span>Bundle any scents: 2 × 50 ml at ₹699 each</span><i data-icon=\"chevron-right\" class=\"s\"></i></div>\n<header class=\"d-hdr\" data-change=\"C2\"><span class=\"l\"><button aria-label=\"Search\"><i data-icon=\"search\"></i></button></span><img class=\"logo\" src=\"asset:logo.png\" alt=\"UFF!\"><span class=\"r\"><button aria-label=\"Account\"><i data-icon=\"user\"></i></button><button aria-label=\"Wishlist\"><i data-icon=\"heart\"></i></button><button aria-label=\"Bag\"><i data-icon=\"bag\"></i></button></span></header>\n<nav class=\"d-nav\" data-change=\"C3\"><a>Tester pack</a><a>Shop</a><a>Men's</a><a>Women's</a><a>Unisex</a><a>Offers</a><a>Originals</a><a>Track your order</a></nav>\n<div class=\"d-main\">\n  <div class=\"d-gal\" data-change=\"C10\">\n    <div class=\"ph \"><span class=\"ph-n\">Image 1</span><span class=\"ph-t\">Hero bottle, night mood</span><span class=\"ph-d\">Bottle on a dark backdrop, warm amber rim light. Product fills two-thirds of the frame.</span></div>\n    <div class=\"ph \"><span class=\"ph-n\">Image 2</span><span class=\"ph-t\">If you love Wanted by Night</span><span class=\"ph-d\">Accord-match card: warm spicy, cinnamon, woody</span></div>\n    <div class=\"ph \"><span class=\"ph-n\">Image 3</span><span class=\"ph-t\">Performance card</span><span class=\"ph-d\">7h longevity, strong projection, night, seasons</span></div>\n    <div class=\"ph \"><span class=\"ph-n\">Image 4</span><span class=\"ph-t\">Scent pyramid</span><span class=\"ph-d\">Raw materials: cinnamon, mandarin, tobacco, cedar, leather</span></div>\n    <div class=\"ph \"><span class=\"ph-n\">Image 5</span><span class=\"ph-t\">Sizes in hand</span><span class=\"ph-d\">20, 50 and 100 ml side by side for scale</span></div>\n    <div class=\"ph \"><span class=\"ph-n\">Image 6</span><span class=\"ph-t\">Worn on a night out</span><span class=\"ph-d\">Collar spray moment</span></div>\n    <div class=\"ph \"><span class=\"ph-n\">Image 7</span><span class=\"ph-t\">Gift box and engraving</span><span class=\"ph-d\">Engraved bottle with the box</span></div>\n  </div>\n  <div class=\"d-buy\" data-change=\"C20\">\n    \n<div class=\"tb\">\n  <span class=\"t-insp\" data-change=\"C5\"><i data-icon=\"sparkle\" class=\"s\"></i>Inspired by <b>Wanted by Night</b></span>\n  <h1 class=\"t-name\" data-change=\"C6\">Desired</h1>\n  <p class=\"t-sub\" data-change=\"C6\">Spiced &amp; fiery woody · Extrait de Parfum · For him</p>\n  <p class=\"t-desc\" data-change=\"C7\">Warm cinnamon, sweet mandarin and smoky tobacco. Built to rule the night.</p>\n  <div class=\"t-rate\" data-change=\"C8\"><span class=\"stars\"><i data-icon=\"star\" class=\"s\"></i><i data-icon=\"star\" class=\"s\"></i><i data-icon=\"star\" class=\"s\"></i><i data-icon=\"star\" class=\"s\"></i><i data-icon=\"star\" class=\"s\"></i></span><span class=\"needs-input\">[rating · review count]</span></div>\n  <div class=\"t-price\" data-change=\"C9\"><span class=\"now\">₹999</span><span class=\"was\">₹1,299</span><span class=\"save\">Save 23%</span><span class=\"unit\">50 ml · ₹19.98/ml</span></div>\n  <p class=\"fine\">Tax included.</p>\n</div>\n    <div class=\"spec\" data-change=\"C11\"><div><b>7H</b><span><i data-icon=\"clock\" class=\"s\"></i>Longevity</span></div><div><b>Strong</b><span><i data-icon=\"wind\" class=\"s\"></i>Projection</span></div><div><b>Night</b><span><i data-icon=\"moon\" class=\"s\"></i>Best worn</span></div></div>\n    <div class=\"opt\" data-change=\"C12\">\n  <div class=\"o-label\"><span><b>Select size:</b> 50 ml</span><a>Size guide</a></div>\n  <div class=\"sizes\">\n    <div class=\"size\"><b>20 ml</b><span class=\"p\">₹399</span><span class=\"pm\">₹19.95/ml</span></div>\n    <div class=\"size on\"><b>50 ml</b><span class=\"p\">₹999</span><span class=\"pm\">₹19.98/ml</span></div>\n    <div class=\"size\"><span class=\"tag\">Best value</span><b>100 ml</b><span class=\"p\">₹1,299</span><span class=\"pm\">₹12.99/ml</span></div>\n  </div>\n  <p class=\"try\"><i data-icon=\"flask\" class=\"s\"></i><span>New to this scent? Try the 20 ml first, or the <a>tester pack</a>.</span></p>\n</div>\n    <ul class=\"offer\" data-change=\"C13\">\n  <li><i data-icon=\"layers\" class=\"s\"></i><span><b>Bundle any scents</b>2 × 50 ml at ₹699 each, 3 at ₹666 each. <a>Build your bundle</a></span></li>\n  <li><i data-icon=\"tag\" class=\"s\"></i><span><b>Prepaid offer</b>Extra 20% off prepaid orders with <span class=\"code\">DIWALI2026</span></span></li>\n</ul>\n    <div class=\"engr\" data-change=\"C14\"><span class=\"box\"></span><span><b>Add free engraving</b><small>Up to 9 characters · 50 ml and 100 ml · ships in 2–3 business days</small></span><i data-icon=\"gift\" class=\"s muted\"></i></div>\n    <div class=\"buy\" data-change=\"C15\"><div class=\"qty\"><button aria-label=\"Decrease\"><i data-icon=\"minus\" class=\"s\"></i></button><span>1</span><button aria-label=\"Increase\"><i data-icon=\"plus\" class=\"s\"></i></button></div><button class=\"cta\">Add to cart</button></div>\n<button class=\"buy2\" data-change=\"C15\">Buy now <small>· UPI &amp; cards</small></button>\n    <ul class=\"assure\" data-change=\"C16\">\n  <li><i data-icon=\"sparkle\" class=\"s\"></i>Freshly made to order</li>\n  <li><i data-icon=\"truck\" class=\"s\"></i><span class=\"needs-input\">[Ships in X days]</span></li>\n  <li><i data-icon=\"chat\" class=\"s\"></i><span>Questions? <a>Chat with a product specialist</a></span></li>\n</ul>\n  </div>\n</div>\n<div class=\"d-more\"><section class=\"notes\" data-change=\"C17\"><h3>What it smells like</h3>\n  <div class=\"tier\"><span>Top</span><p>Cinnamon · Mandarin · Lavender</p></div>\n  <div class=\"tier\"><span>Heart</span><p>Red cedar · Incense · Cumin</p></div>\n  <div class=\"tier\"><span>Base</span><p>Tobacco · Cedarwood · Leather</p></div>\n  <div class=\"accords\"><em>Warm spicy</em><em>Cinnamon</em><em>Fruity</em><em>Woody</em><em>Sweet</em></div>\n</section><div class=\"faq\" data-change=\"C18\"><details><summary>How long does it last?<i data-icon=\"chevron-down\" class=\"s\"></i></summary><p class=\"a\">Beast mode: an opulent Extrait concentration engineered to project deeply through the night. Around 7 hours of longevity with strong projection.</p></details><details><summary>When should I wear it?<i data-icon=\"chevron-down\" class=\"s\"></i></summary><p class=\"a\">Late evenings, clubbing, upscale lounges and cooler weather.</p></details><details><summary>How do I apply it?<i data-icon=\"chevron-down\" class=\"s\"></i></summary><p class=\"a\">Hold the bottle 6 inches from your garment and mist lightly on the collar, cuffs or shoulders. Keep the distance so the mist settles evenly and to avoid oil stains from the high concentration.</p></details><details><summary>What's in the bottle?<i data-icon=\"chevron-down\" class=\"s\"></i></summary><p class=\"a\">Extrait de Parfum. Made to order, freshly handcrafted after purchase. Shelf life 3 years from date of purchase. Ingredients: odouriferous alcoholic solution, DM water, dipropylene glycol, fragrance. Category: apparel perfume.</p></details><details><summary>Can I cancel or return it?<i data-icon=\"chevron-down\" class=\"s\"></i></summary><p class=\"a\">Regular orders can be cancelled within 1 hour of placement. Festive Sale orders cannot be cancelled once placed. Perfumes and samples/decants are non-returnable, non-refundable and non-exchangeable. For damaged or defective products, contact us within 2 business days of delivery with a mandatory unboxing video; approved refunds are subject to a 2.5% payment gateway fee.</p></details></div></div>\n<section class=\"d-vids\"><h3 class=\"vids-h\">See it in action</h3><div class=\"vids\"><div class=\"ph vid\"><span class=\"ph-n\">Video 1</span><i data-icon=\"play\" class=\"play\"></i><span class=\"ph-t\">First-spray reaction</span><span class=\"ph-d\">Real customer, 15 s</span></div><div class=\"ph vid\"><span class=\"ph-n\">Video 2</span><i data-icon=\"play\" class=\"play\"></i><span class=\"ph-t\">Still there at 2 a.m.?</span><span class=\"ph-d\">Longevity check across a night</span></div><div class=\"ph vid\"><span class=\"ph-n\">Video 3</span><i data-icon=\"play\" class=\"play\"></i><span class=\"ph-t\">Unboxing and engraving</span><span class=\"ph-d\">Gift-ready box</span></div><div class=\"ph vid\"><span class=\"ph-n\">Video 4</span><i data-icon=\"play\" class=\"play\"></i><span class=\"ph-t\">Side-by-side scent test</span><span class=\"ph-d\">Only if legal clears the comparison</span></div></div></section>\n",
+   "css": ".proto[data-dev=\"desktop\"]{padding-bottom:96px}\n.proto[data-dev=\"desktop\"] .u-bar{justify-content:center;gap:28px;font-size:13px}\n.proto .d-hdr{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;height:72px;padding:0 40px;background:var(--brand);color:#fff}\n.proto .d-hdr .logo{height:38px}\n.proto .d-hdr .r{display:flex;justify-content:flex-end;gap:6px}\n.proto .d-hdr button{width:44px;height:44px;display:grid;place-items:center}\n.proto .d-nav{display:flex;justify-content:center;gap:44px;height:54px;align-items:center;border-bottom:1px solid var(--line);font:600 13px/1 var(--f-body);letter-spacing:.07em;text-transform:uppercase}\n.proto .d-main{max-width:1200px;margin:0 auto;padding:36px 40px 0;display:grid;grid-template-columns:minmax(0,1.12fr) minmax(0,1fr);gap:56px;align-items:start}\n.proto .d-gal{display:grid;grid-template-columns:1fr 1fr;gap:12px}\n.proto .d-gal .ph{--ph-ar:4/5;padding:18px}\n.proto .d-gal .ph:first-child{grid-column:1/-1;--ph-ar:1/1}\n.proto .d-gal .ph .ph-t{font-size:14px}\n.proto .d-buy{position:sticky;top:24px;display:flex;flex-direction:column;gap:22px}\n.proto .d-buy .tb{padding:0}\n.proto[data-dev=\"desktop\"] .t-name{font-size:88px}\n.proto[data-dev=\"desktop\"] .t-sub{font-size:15px}\n.proto[data-dev=\"desktop\"] .t-desc{font-size:17px;max-width:44ch}\n.proto[data-dev=\"desktop\"] .now{font-size:30px}\n.proto[data-dev=\"desktop\"] .d-buy .buy2{margin-top:-14px}\n.proto .d-more{max-width:1200px;margin:72px auto 0;padding:0 40px;display:grid;grid-template-columns:1fr 1.25fr;gap:56px;align-items:start}\n.proto .d-vids{max-width:1200px;margin:72px auto 0;padding:0 40px}\n.proto .d-vids .vids-h{margin-bottom:18px}\n.proto .d-vids .vids .ph{flex:1 1 0}\n"
+  }
+ },
+ "changes": [
+  {
+   "id": "C1",
+   "zone": "Announcement bar",
+   "layer": "structure",
+   "kind": "reformatted",
+   "source": "relocated",
+   "title": "One bundle message instead of a 15-tier price ticker",
+   "what": "The scrolling list of 15 price tiers becomes one line, 'Bundle any scents: 2 × 50 ml at ₹699 each', with arrows to rotate other messages.",
+   "why": "Nobody reads 15 prices in a moving strip. One clear message about the brand's real AOV lever gets read on every page.",
+   "metric": "AOV",
+   "impact": "Guard: conversion rate"
+  },
+  {
+   "id": "C2",
+   "zone": "Header",
+   "layer": "structure",
+   "kind": "reformatted",
+   "source": "removed",
+   "devices": [
+    "mobile"
+   ],
+   "title": "Mobile header: menu left, search and bag right",
+   "what": "Keeps the maroon brand header; drops account and wishlist on mobile, with the heart moving onto the gallery.",
+   "why": "A familiar, uncluttered header is faster to use; account access isn't needed to buy.",
+   "metric": "Bounce rate"
+  },
+  {
+   "id": "C3",
+   "zone": "Header",
+   "layer": "design",
+   "kind": "restyled",
+   "source": "restyled",
+   "devices": [
+    "desktop"
+   ],
+   "title": "Navigation labels without emoji",
+   "what": "'OFFERS 🔥' and 'ORIGINALS ✅' become plain labels in one consistent type style.",
+   "why": "Emoji render differently on every device and read as noise next to an Extrait. One visual language looks more trustworthy.",
+   "metric": "Clicks to Offers and Originals"
+  },
+  {
+   "id": "C4",
+   "zone": "Above the fold",
+   "layer": "structure",
+   "kind": "removed",
+   "source": "removed",
+   "title": "Countdown removed until it matches a real end date",
+   "what": "Removes 'Sale ends in 02h 59m'. The cart drawer shows a different, 3-day Diwali countdown for the same period.",
+   "why": "Two timers that disagree read as manufactured urgency. That costs trust, and it is what India's false-urgency rules target.",
+   "metric": "Conversion rate",
+   "impact": "Also reduces compliance risk"
+  },
+  {
+   "id": "C5",
+   "zone": "Title block",
+   "layer": "structure",
+   "kind": "reformatted",
+   "source": "relocated",
+   "title": "Lead with the inspired-by promise",
+   "what": "'Inspired by Wanted by Night' becomes the first thing on the page, as an outlined tag in the brand maroon.",
+   "why": "This promise is why shoppers clicked. Small italics under the name made them hunt for it.",
+   "metric": "Add-to-cart rate"
+  },
+  {
+   "id": "C6",
+   "zone": "Title block",
+   "layer": "copy",
+   "kind": "reformatted",
+   "source": "relocated",
+   "title": "Name plus what it is",
+   "what": "DESIRED is followed by 'Spiced & fiery woody · Extrait de Parfum · For him', replacing the badges 'Male · Super lasting · Strong projection'.",
+   "why": "Extrait concentration is real proof of strength; 'super lasting' is a claim every dupe brand makes. The line also says who it's for.",
+   "metric": "Add-to-cart rate"
+  },
+  {
+   "id": "C7",
+   "zone": "Title block",
+   "layer": "copy",
+   "kind": "added",
+   "source": "relocated",
+   "title": "Two-line scent description",
+   "what": "Adds a two-line description from the brand's own meta copy, in its voice.",
+   "why": "A name alone doesn't tell a shopper what they'll smell. Two lines answer it in the first screen.",
+   "metric": "Add-to-cart rate"
+  },
+  {
+   "id": "C8",
+   "zone": "Title block",
+   "layer": "structure",
+   "kind": "added",
+   "source": "needs-input",
+   "needs_input": true,
+   "title": "Rating next to the title",
+   "what": "A slot for DESIRED's rating and review count. Other scents on the site show ratings; this one shows none.",
+   "why": "For a blind buy, other buyers' verdict on longevity and likeness is the strongest proof available. Collect it; don't fake it.",
+   "metric": "Add-to-cart rate"
+  },
+  {
+   "id": "C9",
+   "zone": "Title block",
+   "layer": "copy",
+   "kind": "reformatted",
+   "source": "reformatted",
+   "title": "Price with size and price per ml",
+   "what": "'50 ml · ₹19.98/ml' sits beside ₹999. The theme's unit-price field renders empty today.",
+   "why": "Per-ml price makes sizes, and the original, comparable at a glance; India's packaged-commodity rules also expect a unit sale price online.",
+   "metric": "Add-to-cart rate"
+  },
+  {
+   "id": "C10",
+   "zone": "Gallery",
+   "layer": "structure",
+   "kind": "reformatted",
+   "source": "needs-input",
+   "needs_input": true,
+   "title": "A seven-image gallery plan",
+   "what": "Two images become a planned set of seven (see the image brief): an arrow and a peek on mobile, a grid on desktop.",
+   "why": "Scent can't be photographed, so the gallery has to sell the mood, the likeness, the performance, the size and the gift. Two images can't.",
+   "metric": "Gallery interaction; add-to-cart rate"
+  },
+  {
+   "id": "C11",
+   "zone": "Gallery",
+   "layer": "structure",
+   "kind": "added",
+   "source": "relocated",
+   "title": "Longevity, projection and occasion as a spec bar",
+   "what": "7H · Strong · Night move out of an infographic image into a bold, readable bar under the gallery.",
+   "why": "These answer the two biggest dupe doubts: will it last, and will people notice. Before, they were readable only inside the second image.",
+   "metric": "Add-to-cart rate"
+  },
+  {
+   "id": "C12",
+   "zone": "Options",
+   "layer": "structure",
+   "kind": "reformatted",
+   "source": "relocated",
+   "title": "Size tiles with price per ml and a low-risk first try",
+   "what": "Each size shows its price and per-ml cost; 'Best value' stays on 100 ml. Adds 'New to this scent? Try the 20 ml first, or the tester pack.'",
+   "why": "Perfumes here are non-returnable, so the fear is a big bottle of a scent you don't like. The 20 ml and the existing tester pack lower that risk at the moment of choice.",
+   "metric": "Add-to-cart rate",
+   "impact": "Watch AOV and the size mix"
+  },
+  {
+   "id": "C13",
+   "zone": "Options",
+   "layer": "copy",
+   "kind": "reformatted",
+   "source": "relocated",
+   "title": "Bundle and prepaid offers as text",
+   "what": "Three image offer cards become two text lines: the bundle tiers with 'Build your bundle', and the prepaid code that today appears only in the cart.",
+   "why": "Prices inside images are unreadable on mobile, and a prepaid code shoppers only see in the cart can't help them decide.",
+   "metric": "AOV; prepaid share"
+  },
+  {
+   "id": "C14",
+   "zone": "Options",
+   "layer": "design",
+   "kind": "restyled",
+   "source": "relocated",
+   "title": "Engraving as one compact option",
+   "what": "Free engraving stays, as a single row with its limits: up to 9 characters, 50 and 100 ml, ships in 2–3 business days.",
+   "why": "A strong gift reason, but as a large box before the button it added a decision and pushed the button down.",
+   "metric": "Engraving uptake; add-to-cart rate"
+  },
+  {
+   "id": "C15",
+   "zone": "Buy",
+   "layer": "design",
+   "kind": "restyled",
+   "source": "restyled",
+   "title": "One primary button",
+   "what": "Add to cart is the only solid black button, with quantity inline. The maroon Buy now (UPI) becomes an outlined secondary.",
+   "why": "Each screen should have one primary action. Two heavy buttons in different colours split attention; express checkout stays without competing.",
+   "metric": "Add-to-cart rate",
+   "impact": "Test Buy now as primary"
+  },
+  {
+   "id": "C16",
+   "zone": "Buy",
+   "layer": "structure",
+   "kind": "added",
+   "source": "relocated",
+   "needs_input": true,
+   "title": "Honest reassurance under the button",
+   "what": "Freshly made to order; a slot for dispatch time; the existing product-specialist chat as a link.",
+   "why": "With no returns, reassurance must come from craft and access to a person, not from a policy promise.",
+   "metric": "Add-to-cart rate; chat starts"
+  },
+  {
+   "id": "C17",
+   "zone": "Scent",
+   "layer": "structure",
+   "kind": "reformatted",
+   "source": "relocated",
+   "title": "A scent pyramid instead of note photos",
+   "what": "Five large note photos and the empty 'Scent Notes' accordion become a top / heart / base list from the product description, plus the main accords.",
+   "why": "The photos filled a screen before the button and listed different notes from the description. The pyramid answers what you'll smell, and when, at a glance.",
+   "metric": "Scroll reach to add-to-cart"
+  },
+  {
+   "id": "C18",
+   "zone": "Questions",
+   "layer": "copy",
+   "kind": "reformatted",
+   "source": "reformatted",
+   "title": "Accordions as the questions buyers ask",
+   "what": "How long does it last? When should I wear it? How do I apply it? What's in the bottle? Can I cancel or return it? Policy text kept in full.",
+   "why": "Question titles get more clicks than labels, and these match a first-time fragrance buyer's doubts.",
+   "metric": "Accordion opens; add-to-cart rate"
+  },
+  {
+   "id": "C19",
+   "zone": "Buy",
+   "layer": "structure",
+   "kind": "removed",
+   "source": "removed",
+   "title": "Sticky bar only after the inline button scrolls away",
+   "what": "Today the sticky add-to-cart bar shows from the first screen. Show it once the inline button has left the viewport.",
+   "why": "Asking for the sale before the page makes its case, with a duplicate button, adds noise to the first screen.",
+   "metric": "Add-to-cart rate"
+  },
+  {
+   "id": "C20",
+   "zone": "Buy",
+   "layer": "structure",
+   "kind": "reformatted",
+   "source": "restyled",
+   "devices": [
+    "desktop"
+   ],
+   "title": "Desktop: the buy box stays in view while the gallery scrolls",
+   "what": "Two columns: a seven-image gallery grid on the left, and a sticky buy box on the right carrying the full decision sequence.",
+   "why": "On desktop the gallery and the decision can sit side by side, so the button is always one glance away.",
+   "metric": "Add-to-cart rate (desktop)"
+  }
+ ],
+ "image_plan": [
+  {
+   "n": "1",
+   "slot": "Hero: the bottle at night",
+   "show": "DESIRED bottle on a dark, smoky backdrop with warm amber rim light. Bottle fills two-thirds of the frame; label readable.",
+   "overlay": "None",
+   "why": "Product first, in the mood the scent promises."
+  },
+  {
+   "n": "2",
+   "slot": "Inspired-by accord match",
+   "show": "A clean card: 'If you love Wanted by Night', listing the shared accords (warm spicy, cinnamon, woody) with small ingredient icons.",
+   "overlay": "If you love Wanted by Night",
+   "why": "Answers 'will it smell like it?' without showing the original brand's bottle."
+  },
+  {
+   "n": "3",
+   "slot": "Performance",
+   "show": "Today's infographic redesigned to be legible at phone size: 7h longevity, strong projection, best at night, seasons.",
+   "overlay": "7H · Strong projection · Night",
+   "why": "Longevity is the second-biggest doubt; make it scannable."
+  },
+  {
+   "n": "4",
+   "slot": "Scent pyramid",
+   "show": "Raw materials arranged top to bottom: cinnamon and mandarin; cedar and incense; tobacco and leather.",
+   "overlay": "Top / Heart / Base",
+   "why": "Turns notes into something the shopper can almost smell."
+  },
+  {
+   "n": "5",
+   "slot": "Sizes for scale",
+   "show": "20, 50 and 100 ml bottles side by side, held in a hand.",
+   "overlay": "20 ml · 50 ml · 100 ml",
+   "why": "Shoppers can't judge ml; scale makes the 100 ml 'best value' tangible."
+  },
+  {
+   "n": "6",
+   "slot": "Worn on a night out",
+   "show": "A man spraying his collar before heading out, warm low light.",
+   "overlay": "None",
+   "why": "Shows the occasion and the application tip in one frame."
+  },
+  {
+   "n": "7",
+   "slot": "Gift box and engraving",
+   "show": "The box open with an engraved bottle; the engraving clearly legible.",
+   "overlay": "Free engraving",
+   "why": "Sells the gift use and the free engraving."
+  },
+  {
+   "n": "V1–V4",
+   "slot": "Customer videos",
+   "show": "First-spray reaction; longevity check across a night; unboxing with engraving; a side-by-side scent test only if legal clears it.",
+   "overlay": "",
+   "why": "Video has the lowest drop-off and carries the 'real people like it' proof the page lacks."
+  }
+ ],
+ "scorecard": [
+  {
+   "question": "Fit: will I like it, is it for me?",
+   "before": "partial",
+   "after": "pass",
+   "note": "Inspired-by line first, scent description, pyramid, occasion"
+  },
+  {
+   "question": "Difference: why UFF over the original or other dupes?",
+   "before": "fail",
+   "after": "pass",
+   "note": "Extrait concentration, made to order and engraving surfaced"
+  },
+  {
+   "question": "Trust: will it smell right and last?",
+   "before": "fail",
+   "after": "partial",
+   "note": "7h and projection as text; a rating and reviews still needed"
+  },
+  {
+   "question": "Value: is it worth it?",
+   "before": "partial",
+   "after": "pass",
+   "note": "Price per ml on every size, readable bundle and prepaid offers"
+  },
+  {
+   "question": "Usability: easy to choose and buy?",
+   "before": "fail",
+   "after": "pass",
+   "note": "One primary button, button within two screens, no empty accordion"
+  },
+  {
+   "question": "Retention: sets up the next purchase?",
+   "before": "partial",
+   "after": "partial",
+   "note": "20 ml / tester path and bundles; a post-purchase journey is outside this page"
+  }
+ ],
+ "checks": [
+  {
+   "check": "One short announcement bar",
+   "before": "fail",
+   "after": "pass",
+   "note": "15-tier ticker replaced"
+  },
+  {
+   "check": "Urgency is real and consistent",
+   "before": "fail",
+   "after": "pass",
+   "note": "3-hour PDP timer vs 3-day cart timer; removed pending a real end date"
+  },
+  {
+   "check": "Price with value context (unit price)",
+   "before": "fail",
+   "after": "pass",
+   "note": "Unit-price field renders empty today"
+  },
+  {
+   "check": "CTA colour used only on the primary button",
+   "before": "fail",
+   "after": "pass",
+   "note": "Black primary; maroon for brand, selection and savings"
+  },
+  {
+   "check": "Add-to-cart within the first two mobile screens",
+   "before": "fail",
+   "after": "pass",
+   "note": "Note photos and engraving no longer sit above it"
+  },
+  {
+   "check": "No empty or label-only accordions",
+   "before": "fail",
+   "after": "pass",
+   "note": "'Scent Notes' was empty"
+  },
+  {
+   "check": "Notes consistent across the page",
+   "before": "fail",
+   "after": "partial",
+   "note": "Tiles and description list different notes; brand must confirm"
+  },
+  {
+   "check": "Product imagery planned, not reused",
+   "before": "partial",
+   "after": "pass",
+   "note": "Seven-image brief replaces two images"
+  }
+ ],
+ "needs_input": [
+  {
+   "item": "DESIRED star rating and review count",
+   "why": "None shown on this page; other products show ratings"
+  },
+  {
+   "item": "Dispatch time for made-to-order bottles",
+   "why": "Only engraved orders state a timeline (2–3 business days)"
+  },
+  {
+   "item": "The confirmed note list and seasons",
+   "why": "Note photos show fruity notes, orange and vanilla; the description lists mandarin, lavender, cumin and leather. The image says all seasons; the description says cooler weather"
+  },
+  {
+   "item": "Whether DIWALI2026 stacks with the sale price",
+   "why": "If it does, show the post-code price (₹799.20 for 50 ml) beside the price"
+  },
+  {
+   "item": "The sale's real end date",
+   "why": "Needed before any countdown returns"
+  },
+  {
+   "item": "Legal check on showing the original brand's bottle in the hero",
+   "why": "The comparison image is persuasive; confirm it's cleared before giving it more prominence"
+  },
+  {
+   "item": "Seven gallery images and four customer videos",
+   "why": "See the image brief; the prototype shows numbered placeholders"
+  }
+ ],
+ "data_requests": [
+  "Scroll map of this page on mobile: what % reach the add-to-cart today",
+  "Add-to-cart and conversion rate by device and traffic source",
+  "Size mix of orders (20 / 50 / 100 ml) and share of bundle orders",
+  "Top pre-purchase questions from WhatsApp and the specialist chat",
+  "Complaints about scent not matching the original"
+ ],
+ "next_tests": [
+  {
+   "idea": "Default the size to 100 ml",
+   "metric": "AOV and conversion rate",
+   "why": "The default 50 ml is the worst value per ml (₹19.98 vs ₹12.99 for 100 ml)"
+  },
+  {
+   "idea": "'Buy now · UPI' as the primary button",
+   "metric": "Conversion rate",
+   "why": "Fast UPI checkout may beat add-to-cart for single-bottle buyers in India"
+  },
+  {
+   "idea": "A 'Smells like Wanted by Night' likeness score from reviews",
+   "metric": "Add-to-cart rate",
+   "why": "Turns the core doubt into proof, once reviews exist"
+  },
+  {
+   "idea": "Credit the 20 ml or tester price toward a full bottle",
+   "metric": "Repeat rate",
+   "why": "Converts low-risk trials into full-size orders"
+  },
+  {
+   "idea": "Review request after delivery asking about longevity and likeness",
+   "metric": "Review count",
+   "why": "Builds the proof this page is missing"
+  }
+ ],
+ "summary": {
+  "measurement": "A/B test the new mobile page against the current one for 2–4 weeks if traffic allows; otherwise compare 3–4 weeks before and after, excluding the Diwali sale window. Primary metric: add-to-cart rate. Guard metrics: conversion rate and AOV (the 20 ml 'try first' nudge could lower AOV, so watch the size mix). Secondary: bundle share, engraving uptake, chat starts.",
+  "protected": [
+   "The inspired-by positioning, in the brand's own wording",
+   "The brand's voice ('built to rule the night', 'beast mode')",
+   "Cancellation and refund terms, kept in full",
+   "'Tax included.'",
+   "Free engraving and the product-specialist chat",
+   "Maroon as the brand colour in the header, selection and savings"
+  ],
+  "limitations": [
+   "Only desktop screenshots were shared, so the mobile Before view is empty; the mobile proposal is built from the URL and the desktop page",
+   "Brand typeface approximated with Archivo and Hanken Grotesk",
+   "No analytics provided; drop-off causes are hypotheses",
+   "Not legal advice on unit pricing, urgency or comparative imagery"
+  ]
+ }
+}

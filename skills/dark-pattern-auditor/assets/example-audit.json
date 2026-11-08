@@ -1,0 +1,534 @@
+{
+ "meta": {
+  "title": "Dark pattern audit: product page and checkout",
+  "target_name": "QuickCart (test fixture)",
+  "target": "http://localhost:8765/product.html",
+  "target_type": "website",
+  "audited_on": "2026-11-02",
+  "auditor": "dark-pattern-auditor skill (test run)",
+  "scope": [
+   "Product page",
+   "Checkout review"
+  ],
+  "applicability": "QuickCart prices in ₹ and ships in India, so the CCPA Guidelines apply.",
+  "note": "Worked example from a test fixture. Screens normally also carry an 'image' path when a screenshot file exists."
+ },
+ "summary": {
+  "verdict": "Checkout charges ₹159 of extras by default and reveals ₹52 of fees late. Three of these patterns have already drawn CCPA penalties.",
+  "overview": "10 findings across 2 screens. The checkout cluster (pre-ticked add-ons, a shaming opt-out, an invisible decline) is the most urgent. Two product-page claims need data to confirm.",
+  "top_actions": [
+   "Untick protection, donation and marketing consent by default (F1, F2, F5)",
+   "Replace “I’ll stay unprotected” with two equal buttons (F3, F4)",
+   "Show platform and handling fees on the product page (F6)"
+  ]
+ },
+ "screens": [
+  {
+   "id": "S1",
+   "name": "Product page",
+   "device": "mobile",
+   "source": "http://localhost:8765/product.html",
+   "current_html": "<div style='background:#222;color:#fff;padding:10px 14px;margin:-12px -16px 12px'>QuickCart</div>\n<h2 style='margin:0 0 6px;font-size:20px'>BoltBuds Wireless Earbuds</h2>\n<div style='font-size:18px;font-weight:700'>₹1,499 <small data-dp='F6' style='font-weight:400;color:#555'>Inclusive of all taxes</small></div>\n<p data-dp='F8' style='color:#c00;font-weight:700;margin:10px 0'>Only 2 left in stock! 37 people are viewing this right now</p>\n<div data-dp='F7' style='background:#ffe9e9;color:#b00;padding:8px;font-weight:700'>Deal ends in 00:14:58</div>\n<button style='background:#ff6a00;color:#fff;border:0;padding:14px;width:100%;font-size:16px;margin-top:10px'>Add to cart</button>\n<div data-dp='F10' style='border:1px solid #eee;padding:8px;margin-top:12px'><b>Top pick: SoundMax Pro</b><p style='margin:4px 0 0'>Customers love it. 4.9 stars</p></div>\n<div data-dp='F9' style='margin:18px -16px -16px;box-shadow:0 -2px 10px #0003;padding:16px'><p style='margin:0 0 8px'><b>Get 10% off in our app!</b></p>\n<button style='background:#0a7;color:#fff;border:0;padding:12px;width:100%'>Download the app</button>\n<button style='color:#ccc;font-size:11px;background:none;border:0;margin-top:6px'>Maybe later</button></div>",
+   "compliant_html": "<div style='background:#222;color:#fff;padding:10px 14px;margin:-12px -16px 12px'>QuickCart</div>\n<h2 style='margin:0 0 6px;font-size:20px'>BoltBuds Wireless Earbuds</h2>\n<div data-fix='F6' style='font-size:18px;font-weight:700'>₹1,499 <small style='font-weight:400;color:#555'>+ ₹44 platform &amp; handling fees (₹52 incl. GST) shown before checkout</small></div>\n<p data-fix='F8' style='color:#333;margin:10px 0'>In stock: 2 units as of 2:10 pm</p>\n<div data-fix='F7' style='background:#f4f4f4;color:#222;padding:8px'>Sale price valid until 30 Nov, 11:59 pm</div>\n<button style='background:#ff6a00;color:#fff;border:0;padding:14px;width:100%;font-size:16px;margin-top:10px'>Add to cart</button>\n<div data-fix='F10' style='border:1px solid #eee;padding:8px;margin-top:12px'><span style='font-size:12px;font-weight:700;color:#333;background:#eee;padding:2px 6px;border-radius:3px'>Sponsored</span><br><b>SoundMax Pro</b><p style='margin:4px 0 0'>4.9 stars from 1,203 ratings</p></div>\n<div data-fix='F9' style='margin:18px -16px -16px;box-shadow:0 -2px 10px #0003;padding:16px'><p style='margin:0 0 8px'><b>Get 10% off in our app</b></p>\n<div style='display:flex;gap:8px'><button style='flex:1;background:#0a7;color:#fff;border:0;padding:12px'>Open app</button><button style='flex:1;background:#fff;color:#222;border:1px solid #888;padding:12px'>No, stay on web</button></div>\n<p style='font-size:12px;color:#555;margin:6px 0 0'>We won’t ask again for 90 days.</p></div>"
+  },
+  {
+   "id": "S2",
+   "name": "Checkout review",
+   "device": "mobile",
+   "source": "http://localhost:8765/cart.html",
+   "current_html": "<div style='background:#222;color:#fff;padding:10px 14px;margin:-12px -16px 12px'>Checkout</div>\n<div style='display:flex;justify-content:space-between'><span>BoltBuds Wireless Earbuds</span><span>₹1,499</span></div>\n<label data-dp='F1' style='display:block;margin:8px 0'><input type='checkbox' checked> Device protection plan ₹149</label>\n<label data-dp='F2' style='display:block;margin:8px 0'><input type='checkbox' checked> Donate ₹10 to QuickCart Foundation</label>\n<label data-dp='F5' style='display:block;margin:8px 0'><input type='checkbox' checked> Send me offers on WhatsApp and SMS</label>\n<div data-dp='F6' style='margin-top:8px'><div style='display:flex;justify-content:space-between'><span>Platform fee</span><span>₹19</span></div>\n<div style='display:flex;justify-content:space-between'><span>Handling charge</span><span>₹25</span></div>\n<div style='display:flex;justify-content:space-between'><span>GST on fees</span><span>₹8</span></div></div>\n<div style='display:flex;justify-content:space-between;margin:8px 0'><b>Total</b><b>₹1,710</b></div>\n<button style='background:#ff6a00;color:#fff;border:0;padding:14px;width:100%;font-size:16px'>Pay ₹1,710</button>\n<button data-dp='F3 F4' style='color:#bbb;font-size:11px;background:none;border:0;margin-top:6px'>No thanks, I'll stay unprotected</button>",
+   "compliant_html": "<div style='background:#222;color:#fff;padding:10px 14px;margin:-12px -16px 12px'>Checkout</div>\n<div style='display:flex;justify-content:space-between'><span>BoltBuds Wireless Earbuds</span><span>₹1,499</span></div>\n<div data-fix='F1 F3 F4' style='border:1px solid #ddd;border-radius:8px;padding:10px;margin:10px 0'><b>Add device protection for ₹149?</b><p style='margin:4px 0 8px;font-size:13px;color:#444'>Covers accidental damage for 1 year.</p>\n<div style='display:flex;gap:8px'><button style='flex:1;background:#fff;border:1px solid #333;padding:10px'>Add protection</button><button style='flex:1;background:#fff;border:1px solid #333;padding:10px'>Continue without</button></div></div>\n<label data-fix='F2' style='display:block;margin:8px 0'><input type='checkbox'> Add a ₹10 donation to QuickCart Foundation</label>\n<label data-fix='F5' style='display:block;margin:8px 0'><input type='checkbox'> Send me offers on WhatsApp and SMS (optional)</label>\n<div data-fix='F6' style='margin-top:8px'><div style='display:flex;justify-content:space-between'><span>Platform &amp; handling fees (as shown on product page)</span><span>₹52</span></div></div>\n<div style='display:flex;justify-content:space-between;margin:8px 0'><b>Total</b><b>₹1,551</b></div>\n<button style='background:#ff6a00;color:#fff;border:0;padding:14px;width:100%;font-size:16px'>Pay ₹1,551</button>"
+  }
+ ],
+ "findings": [
+  {
+   "id": "F1",
+   "title": "Device protection plan pre-ticked at checkout",
+   "pattern": "basket_sneaking",
+   "limb": "paid add-on added without consent (illustration a)",
+   "screen_id": "S2",
+   "boxes": [
+    {
+     "x": 4.1,
+     "y": 13.1,
+     "w": 59.4,
+     "h": 2.6
+    }
+   ],
+   "evidence": "The ₹149 device protection checkbox is checked when checkout loads. The ₹1,710 total includes it, although the user only added earbuds.",
+   "why": "A paid service the user didn't choose is added to the basket by default. This mirrors the Guidelines' own illustration of a pre-ticked paid ancillary service, and pre-ticked consent is barred by E-Commerce Rule 4(9).",
+   "provisions": [
+    "Dark Patterns Guidelines 2023, s.4 + Annexure 1 item 2",
+    "CPA 2019, s.2(47)",
+    "E-Commerce Rules 2020, r.4(9)"
+   ],
+   "confidence": "confirmed",
+   "score": {
+    "harm": 4,
+    "match": 3,
+    "position": 2,
+    "amplifiers": [
+     "default_for_all",
+     "stacked"
+    ],
+    "rationale": "Charges every buyer ₹149 by default at the payment step. Stacked with a shaming, low-contrast decline."
+   },
+   "fix": {
+    "summary": "Present protection as an unselected offer with its price and cover. Add it only on an explicit tap, and update the total visibly.",
+    "copy_before": "☑ Device protection plan ₹149",
+    "copy_after": "Add device protection for ₹149? Covers accidental damage for 1 year. [Add protection] [Continue without]",
+    "acceptance_criteria": [
+     "Fresh session: checkout total equals cart items plus disclosed fees, with no protection line",
+     "Protection is added only through a user click event, logged with a timestamp",
+     "Both choices use the same button component"
+    ],
+    "dev_notes": "The checkbox renders with checked from server state. Default it to false in the checkout DTO.",
+    "owners": [
+     "PM",
+     "Design",
+     "Dev"
+    ]
+   },
+   "precedent": "Zepto and PharmEasy (paid membership auto-added) were penalised; the Guidelines name auto-added travel insurance as an example."
+  },
+  {
+   "id": "F2",
+   "title": "₹10 donation pre-selected",
+   "pattern": "basket_sneaking",
+   "limb": "charity payment added without consent",
+   "screen_id": "S2",
+   "boxes": [
+    {
+     "x": 4.1,
+     "y": 16.3,
+     "w": 75.4,
+     "h": 2.6
+    }
+   ],
+   "evidence": "A ₹10 donation to QuickCart Foundation is checked by default and included in the total.",
+   "why": "The Guidelines list donations among items that can't be added at checkout without consent. The CCPA penalised an almost identical pre-selected ₹10 donation.",
+   "provisions": [
+    "Dark Patterns Guidelines 2023, s.4 + Annexure 1 item 2",
+    "CPA 2019, s.2(47)",
+    "E-Commerce Rules 2020, r.4(9)"
+   ],
+   "confidence": "confirmed",
+   "score": {
+    "harm": 4,
+    "match": 3,
+    "position": 2,
+    "amplifiers": [
+     "default_for_all",
+     "stacked"
+    ],
+    "rationale": "Money taken from every buyer unless they notice and untick. Mirrors the PhysicsWallah order."
+   },
+   "fix": {
+    "summary": "Keep the donation offer but unticked. Optionally show it after payment as a separate, clearly optional step.",
+    "copy_before": "☑ Donate ₹10 to QuickCart Foundation",
+    "copy_after": "☐ Add a ₹10 donation to QuickCart Foundation",
+    "acceptance_criteria": [
+     "Donation checkbox renders unchecked for all users",
+     "Total excludes the donation unless it is ticked in this session"
+    ],
+    "owners": [
+     "PM",
+     "Dev"
+    ]
+   },
+   "precedent": "PhysicsWallah: pre-selected ₹10 donation, penalised by the CCPA."
+  },
+  {
+   "id": "F3",
+   "title": "Opt-out says “I’ll stay unprotected”",
+   "pattern": "confirm_shaming",
+   "limb": "fear wording on the decline option (illustration a)",
+   "screen_id": "S2",
+   "boxes": [
+    {
+     "x": 4.1,
+     "y": 46.7,
+     "w": 41.6,
+     "h": 2.1
+    }
+   ],
+   "evidence": "The only way to decline protection is a link reading “No thanks, I’ll stay unprotected”.",
+   "why": "The decline label uses fear to steer the user toward buying protection. This is nearly word-for-word the Guidelines’ “I will stay unsecured” example and IndiGo’s “No I will take risk”, which the CCPA required to be changed.",
+   "provisions": [
+    "Dark Patterns Guidelines 2023, s.4 + Annexure 1 item 3",
+    "CPA 2019, s.2(47)"
+   ],
+   "confidence": "confirmed",
+   "score": {
+    "harm": 3,
+    "match": 3,
+    "position": 2,
+    "amplifiers": [
+     "stacked"
+    ],
+    "rationale": "Steers a purchase decision at payment, and mirrors the official illustration."
+   },
+   "fix": {
+    "summary": "Replace with a neutral label that describes the action, not the user.",
+    "copy_before": "No thanks, I'll stay unprotected",
+    "copy_after": "Continue without protection",
+    "acceptance_criteria": [
+     "Decline label contains no fear, loss or self-deprecating words",
+     "Copy reviewed against the confirm-shaming checklist before release"
+    ],
+    "owners": [
+     "Design"
+    ]
+   },
+   "precedent": "IndiGo changed “No I will take risk” to neutral copy after CCPA intervention."
+  },
+  {
+   "id": "F4",
+   "title": "Decline link is tiny and nearly invisible",
+   "pattern": "interface_interference",
+   "limb": "decline obscured relative to accept (illustrations a, c)",
+   "screen_id": "S2",
+   "boxes": [
+    {
+     "x": 4.1,
+     "y": 46.7,
+     "w": 41.6,
+     "h": 2.1
+    }
+   ],
+   "evidence": "The decline link is 11px light grey text with a measured contrast of 1.92:1. The pay button is a full-width orange button.",
+   "why": "The design highlights the paid path and obscures the alternative. That is the core of interface interference, and the same contrast gap appeared in the McAfee renewal order.",
+   "provisions": [
+    "Dark Patterns Guidelines 2023, s.4 + Annexure 1 item 6",
+    "CPA 2019, s.2(47)"
+   ],
+   "confidence": "confirmed",
+   "score": {
+    "harm": 3,
+    "match": 3,
+    "position": 2,
+    "amplifiers": [
+     "stacked"
+    ],
+    "rationale": "The visual asymmetry steers a paid choice at payment. The contrast was measured from the live DOM."
+   },
+   "fix": {
+    "summary": "Make declining as visible as accepting: two equal buttons inside the offer card, both at least AA contrast.",
+    "acceptance_criteria": [
+     "Decline text contrast is at least 4.5:1",
+     "Decline tap target is at least 44×44 px",
+     "Accept and decline sit in the same container with the same tap count"
+    ],
+    "owners": [
+     "Design",
+     "Dev"
+    ]
+   },
+   "precedent": "McAfee: grey decline beside a red renew button."
+  },
+  {
+   "id": "F5",
+   "title": "WhatsApp and SMS marketing consent pre-ticked",
+   "pattern": "forced_action",
+   "limb": "consent captured by default",
+   "screen_id": "S2",
+   "boxes": [
+    {
+     "x": 4.1,
+     "y": 19.4,
+     "w": 77.8,
+     "h": 2.6
+    }
+   ],
+   "evidence": "“Send me offers on WhatsApp and SMS” is checked by default at checkout.",
+   "why": "Consent recorded through a pre-ticked box isn’t consent under E-Commerce Rule 4(9). The CCPA treated SpiceJet’s default promotional consent as a dark pattern. From May 2027 the DPDP Act also requires a clear affirmative action.",
+   "provisions": [
+    "Dark Patterns Guidelines 2023, s.4 + Annexure 1 item 4",
+    "E-Commerce Rules 2020, r.4(9)",
+    "DPDP Act 2023, s.6 (from 13 May 2027)"
+   ],
+   "confidence": "confirmed",
+   "score": {
+    "harm": 2,
+    "match": 3,
+    "position": 2,
+    "amplifiers": [
+     "default_for_all"
+    ],
+    "rationale": "Data and consent are taken by default from every buyer."
+   },
+   "fix": {
+    "summary": "Untick by default, label it as optional, and record consent only on a user tick.",
+    "copy_before": "☑ Send me offers on WhatsApp and SMS",
+    "copy_after": "☐ Send me offers on WhatsApp and SMS (optional)",
+    "acceptance_criteria": [
+     "Checkbox unchecked by default",
+     "Consent record stores the timestamp and source of the tick"
+    ],
+    "owners": [
+     "Dev",
+     "Legal"
+    ]
+   },
+   "precedent": "SpiceJet: default consent to promotional communications."
+  },
+  {
+   "id": "F6",
+   "title": "“Inclusive of all taxes” price grows by ₹52 at checkout",
+   "pattern": "drip_pricing",
+   "limb": "limb (i): price elements not revealed upfront",
+   "screen_id": "S2",
+   "boxes": [
+    {
+     "x": 4,
+     "y": 22,
+     "w": 92,
+     "h": 9
+    }
+   ],
+   "evidence": "The product page shows ₹1,499 “Inclusive of all taxes”. Checkout adds a ₹19 platform fee, a ₹25 handling charge and ₹8 GST on fees, which first appear at checkout.",
+   "why": "Mandatory fees are revealed only late in the journey, after an all-in price claim. The CCPA penalised the same pattern at Zepto (handling fees at checkout) and FirstCry (GST added to “tax-inclusive” prices).",
+   "provisions": [
+    "Dark Patterns Guidelines 2023, s.4 + Annexure 1 item 8",
+    "CPA 2019, s.2(28)",
+    "CPA 2019, s.2(47)"
+   ],
+   "confidence": "confirmed",
+   "score": {
+    "harm": 3,
+    "match": 3,
+    "position": 2,
+    "amplifiers": [
+     "default_for_all"
+    ],
+    "rationale": "Every order pays fees not shown at the first price display."
+   },
+   "fix": {
+    "summary": "Show mandatory fees with the first price, or fold them into the displayed price. Keep the same breakdown at checkout.",
+    "copy_before": "₹1,499 Inclusive of all taxes",
+    "copy_after": "₹1,499 + ₹52 platform and handling fees (incl. GST)",
+    "acceptance_criteria": [
+     "For a standard order, product page price plus listed fees equals the payment amount",
+     "No mandatory fee line appears for the first time at checkout"
+    ],
+    "owners": [
+     "PM",
+     "Dev"
+    ]
+   },
+   "precedent": "Zepto (handling charges at checkout); FirstCry (GST on tax-inclusive prices)."
+  },
+  {
+   "id": "F7",
+   "title": "Countdown restarts for every visitor",
+   "pattern": "false_urgency",
+   "limb": "fake time pressure (illustration b)",
+   "screen_id": "S1",
+   "boxes": [
+    {
+     "x": 4.1,
+     "y": 38.7,
+     "w": 91.8,
+     "h": 5.1
+    }
+   ],
+   "evidence": "“Deal ends in 00:15:00” ticks down, but a fresh browser session 5 seconds later showed the same starting value. The deadline is per-visit, not real.",
+   "why": "The timer implies a deadline that doesn’t exist, to push an immediate purchase. The CCPA penalised a recurring 24-hour countdown on a coaching platform as false urgency.",
+   "provisions": [
+    "Dark Patterns Guidelines 2023, s.4 + Annexure 1 item 1",
+    "CPA 2019, s.2(28)",
+    "CPA 2019, s.2(47)",
+    "CPA 2019, s.89 (if found false)"
+   ],
+   "confidence": "confirmed",
+   "score": {
+    "harm": 3,
+    "match": 3,
+    "position": 0,
+    "amplifiers": [
+     "default_for_all"
+    ],
+    "rationale": "Every visitor sees a fabricated deadline. Confirmed by a fresh-session reset check."
+   },
+   "fix": {
+    "summary": "Use a real, server-side sale end that is the same for everyone, and end the offer when it expires. Or remove the timer.",
+    "copy_before": "Deal ends in 00:14:58",
+    "copy_after": "Sale price valid until 30 Nov, 11:59 pm",
+    "acceptance_criteria": [
+     "Timer end time comes from the server and is identical across two fresh sessions",
+     "After expiry, the sale price can no longer be purchased"
+    ],
+    "owners": [
+     "PM",
+     "Dev"
+    ]
+   },
+   "precedent": "Anuj Jindal coaching: recurring 24-hour countdown."
+  },
+  {
+   "id": "F8",
+   "title": "“Only 2 left” and “37 people viewing” claims",
+   "pattern": "false_urgency",
+   "limb": "limbs (i) false popularity, (ii) understated stock (illustration a)",
+   "screen_id": "S1",
+   "boxes": [
+    {
+     "x": 4,
+     "y": 31,
+     "w": 92,
+     "h": 6
+    }
+   ],
+   "evidence": "Scarcity and popularity claims appear above the price. Both numbers stayed identical across sessions.",
+   "why": "If these numbers aren’t live, they are exactly the Guidelines’ illustration of false urgency (“only 2 rooms left, 30 others looking”). Unchanging values suggest hard-coded copy.",
+   "provisions": [
+    "Dark Patterns Guidelines 2023, s.4 + Annexure 1 item 1",
+    "CPA 2019, s.2(28)"
+   ],
+   "confidence": "needs_verification",
+   "score": {
+    "harm": 3,
+    "match": 3,
+    "position": 0,
+    "amplifiers": [
+     "stacked"
+    ],
+    "rationale": "Mirrors the official illustration. Stacked with the resetting timer on the same screen."
+   },
+   "fix": {
+    "summary": "Drive stock from inventory with a timestamp. Drop the viewer count unless it’s real and time-boxed.",
+    "copy_before": "Only 2 left in stock! 37 people are viewing this right now",
+    "copy_after": "In stock: 2 units as of 2:10 pm",
+    "acceptance_criteria": [
+     "Stock string is rendered from the inventory API response, never a constant",
+     "Viewer count removed, or sourced from analytics with a stated window"
+    ],
+    "owners": [
+     "Dev"
+    ]
+   },
+   "verify": "Ask engineering whether both strings come from the inventory and analytics APIs. Check the front-end bundle for the literal strings."
+  },
+  {
+   "id": "F9",
+   "title": "App-install sheet offers only “Maybe later”",
+   "pattern": "nagging",
+   "limb": "repeated request with no option to say no (illustrations a, c)",
+   "screen_id": "S1",
+   "boxes": [
+    {
+     "x": 0,
+     "y": 68.1,
+     "w": 100,
+     "h": 31.9
+    }
+   ],
+   "evidence": "A fixed bottom sheet pushes the app. The only alternative is “Maybe later” in 11px grey (contrast 1.61:1).",
+   "why": "Prompts with no real “no” are named in the nagging illustrations. Whether it returns on every page is unverified. The grey deferral also obscures the alternative.",
+   "provisions": [
+    "Dark Patterns Guidelines 2023, s.4 + Annexure 1 item 10",
+    "CPA 2019, s.2(47)"
+   ],
+   "confidence": "likely",
+   "score": {
+    "harm": 1,
+    "match": 3,
+    "position": 0,
+    "amplifiers": [],
+    "rationale": "Annoyance and friction, not money. Mirrors the app-download illustration."
+   },
+   "fix": {
+    "summary": "Offer a real “No” that is respected for 90 days, styled as a legible secondary button.",
+    "copy_before": "Maybe later",
+    "copy_after": "No, stay on web",
+    "acceptance_criteria": [
+     "After “No”, the sheet doesn’t reappear for 90 days on this device",
+     "Decline button contrast is at least 4.5:1"
+    ],
+    "owners": [
+     "Design",
+     "Dev"
+    ]
+   },
+   "verify": "Navigate three pages in one session and revisit next day to confirm the re-prompt frequency."
+  },
+  {
+   "id": "F10",
+   "title": "“Top pick” card may be an unlabelled paid placement",
+   "pattern": "disguised_advertisement",
+   "limb": "ad blended into content",
+   "screen_id": "S1",
+   "boxes": [
+    {
+     "x": 4,
+     "y": 52,
+     "w": 92,
+     "h": 10
+    }
+   ],
+   "evidence": "A “Top pick: SoundMax Pro” card for a different product sits under the buy button with no Sponsored label.",
+   "why": "If SoundMax pays for this slot, it is an ad posing as an editorial recommendation. The Guidelines require ads to be identifiable, and put disclosure duties on sellers and advertisers.",
+   "provisions": [
+    "Dark Patterns Guidelines 2023, s.4 + Annexure 1 item 9",
+    "CPA 2019, s.2(28)",
+    "Misleading Ads Guidelines 2022"
+   ],
+   "confidence": "needs_verification",
+   "score": {
+    "harm": 2,
+    "match": 2,
+    "position": 0,
+    "amplifiers": [],
+    "rationale": "Misleads without a direct charge. It is only an ad if the placement is paid."
+   },
+   "fix": {
+    "summary": "If paid, add a visible “Sponsored” label at body size. If organic, rename it to explain why it’s shown.",
+    "copy_before": "Top pick: SoundMax Pro",
+    "copy_after": "Sponsored · SoundMax Pro",
+    "acceptance_criteria": [
+     "Every placement served by the ad system renders the Sponsored label component",
+     "Label meets AA contrast"
+    ],
+    "owners": [
+     "PM",
+     "Dev"
+    ]
+   },
+   "verify": "Check the ad server or merchandising config for whether this slot is sold."
+  }
+ ],
+ "coverage": {
+  "subscription_trap": {
+   "status": "not_assessed",
+   "note": "No subscription products in scope."
+  },
+  "bait_and_switch": {
+   "status": "clear",
+   "note": "Listing, product page and cart show the same item and price."
+  },
+  "trick_question": {
+   "status": "clear",
+   "note": "Consent wording is direct (the issue is the pre-tick, logged as F5)."
+  },
+  "saas_billing": {
+   "status": "not_assessed",
+   "note": "No recurring billing in scope."
+  },
+  "rogue_malware": {
+   "status": "clear",
+   "note": "No scareware, fake alerts or suspicious redirects observed."
+  }
+ },
+ "method": {
+  "capture": "Captured with capture_site.py (iPhone 13 emulation), including a fresh-session timer reset check, then scanned with scan_signals.py and reviewed against all 13 patterns.",
+  "limitations": [
+   "Payment page and post-purchase emails not reviewed.",
+   "Stock and viewer counts can't be verified without backend data (F8)."
+  ],
+  "sources": [
+   "CCPA Guidelines for Prevention and Regulation of Dark Patterns, 2023",
+   "Consumer Protection Act, 2019",
+   "Consumer Protection (E-Commerce) Rules, 2020"
+  ]
+ }
+}

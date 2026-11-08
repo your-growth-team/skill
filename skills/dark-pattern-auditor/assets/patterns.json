@@ -1,0 +1,96 @@
+{
+  "source": "Guidelines for Prevention and Regulation of Dark Patterns, 2023 (CCPA, notified 30 Nov 2023), Annexure 1",
+  "patterns": [
+    {
+      "id": "false_urgency",
+      "number": 1,
+      "name": "False urgency",
+      "clause": "Annexure 1, item 1",
+      "summary": "Falsely stating or implying urgency or scarcity, including fake popularity or understated stock, to push an immediate purchase or action."
+    },
+    {
+      "id": "basket_sneaking",
+      "number": 2,
+      "name": "Basket sneaking",
+      "clause": "Annexure 1, item 2",
+      "summary": "Adding products, services, donations or payments at checkout without the user’s consent so the total exceeds what they chose."
+    },
+    {
+      "id": "confirm_shaming",
+      "number": 3,
+      "name": "Confirm shaming",
+      "clause": "Annexure 1, item 3",
+      "summary": "Using words, video, audio or other means to make the user feel fear, shame, ridicule or guilt so they buy or keep subscribing."
+    },
+    {
+      "id": "forced_action",
+      "number": 4,
+      "name": "Forced action",
+      "clause": "Annexure 1, item 4",
+      "summary": "Making the user buy something extra, sign up for an unrelated service, or share personal data to get the thing they came for."
+    },
+    {
+      "id": "subscription_trap",
+      "number": 5,
+      "name": "Subscription trap",
+      "clause": "Annexure 1, item 5",
+      "summary": "Making cancellation impossible, hidden, long or confusing, or demanding payment details or auto-debit for a free subscription."
+    },
+    {
+      "id": "interface_interference",
+      "number": 6,
+      "name": "Interface interference",
+      "clause": "Annexure 1, item 6",
+      "summary": "Design that highlights some information and obscures other relevant information to misdirect the user from the action they want."
+    },
+    {
+      "id": "bait_and_switch",
+      "number": 7,
+      "name": "Bait and switch",
+      "clause": "Annexure 1, item 7",
+      "summary": "Advertising one outcome for the user’s action but deceptively serving a different one, typically a pricier substitute."
+    },
+    {
+      "id": "drip_pricing",
+      "number": 8,
+      "name": "Drip pricing",
+      "clause": "Annexure 1, item 8",
+      "summary": "Hiding price elements until late, charging more than the checkout price, calling something free without disclosing paid continuation, or blocking a paid service until more is bought."
+    },
+    {
+      "id": "disguised_advertisement",
+      "number": 9,
+      "name": "Disguised advertisement",
+      "clause": "Annexure 1, item 9",
+      "summary": "Ads made to look like user content, news or other non-ad content so users click on them without knowing they are ads."
+    },
+    {
+      "id": "nagging",
+      "number": 10,
+      "name": "Nagging",
+      "clause": "Annexure 1, item 10",
+      "summary": "Repeated, persistent requests or interruptions that disrupt the user to push a transaction, unless the user has specifically allowed them."
+    },
+    {
+      "id": "trick_question",
+      "number": 11,
+      "name": "Trick question",
+      "clause": "Annexure 1, item 11",
+      "summary": "Deliberately confusing or vague wording, such as double negatives, that misleads the user into a response they did not intend."
+    },
+    {
+      "id": "saas_billing",
+      "number": 12,
+      "name": "SaaS billing",
+      "clause": "Annexure 1, item 12",
+      "summary": "Recurring billing designed to collect money as quietly as possible: silent trial conversion, unannounced renewals, charging for unused features."
+    },
+    {
+      "id": "rogue_malware",
+      "number": 13,
+      "name": "Rogue malware",
+      "clause": "Annexure 1, item 13",
+      "summary": "Ransomware or scareware that tricks users into believing their device is infected or locks their files to extract payment."
+    }
+  ]
+}

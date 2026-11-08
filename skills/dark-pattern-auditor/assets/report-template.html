@@ -1,0 +1,493 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Dark pattern audit</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#F5F6F8; --surface:#FFFFFF; --ink:#17202D; --muted:#566173; --rule:#DCE1E8; --soft:#EEF1F5;
+  --critical:#B42318; --high:#C4510E; --medium:#946800; --low:#2F6690; --ok:#1E7A46; --na:#6B7280;
+  --focus:#3651C9; --red-wash:rgba(180,35,24,.08);
+  --font:"Public Sans", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  color-scheme: light;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#0F131A; --surface:#161B24; --ink:#E6EAF1; --muted:#9BA5B6; --rule:#2A3140; --soft:#1D2330;
+    --critical:#F4776B; --high:#F59E42; --medium:#E2B53F; --low:#73AEDC; --ok:#4CC98A; --na:#9CA3AF;
+    --focus:#8EA2FF; --red-wash:rgba(244,119,107,.10); color-scheme: dark;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#0F131A; --surface:#161B24; --ink:#E6EAF1; --muted:#9BA5B6; --rule:#2A3140; --soft:#1D2330;
+  --critical:#F4776B; --high:#F59E42; --medium:#E2B53F; --low:#73AEDC; --ok:#4CC98A; --na:#9CA3AF;
+  --focus:#8EA2FF; --red-wash:rgba(244,119,107,.10); color-scheme: dark;
+}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-padding-top:calc(env(safe-area-inset-top,0px) + 64px); scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--font);font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased;font-variant-numeric:tabular-nums}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--surface)}
+a{color:var(--focus)}
+:focus-visible{outline:2px solid var(--focus);outline-offset:2px}
+.wrap{max-width:1180px;margin:0 auto;padding:0 20px}
+h1,h2,h3,h4{line-height:1.2;margin:0}
+h1{font-size:clamp(1.7rem,3.4vw,2.5rem);font-weight:700;letter-spacing:-.01em}
+h2{font-size:1.45rem;font-weight:700;margin-bottom:14px}
+h3{font-size:1.08rem;font-weight:650}
+p{margin:0 0 .7em;max-width:76ch}
+.muted{color:var(--muted)}
+.small{font-size:.875rem}
+
+/* Header */
+header.top{padding:40px 0 26px;border-bottom:1px solid var(--rule);background:var(--surface)}
+.target{font-size:1.02rem;color:var(--muted);margin-top:8px;word-break:break-word}
+.meta{display:flex;flex-wrap:wrap;gap:8px 18px;margin-top:14px;font-size:.9rem;color:var(--muted)}
+.meta b{color:var(--ink);font-weight:600}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+.chip{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--rule);border-radius:999px;padding:2px 10px;font-size:.82rem;background:var(--surface);color:var(--ink)}
+
+/* Toolbar */
+.toolbar{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:color-mix(in srgb,var(--surface) 92%,transparent);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-bottom:1px solid var(--rule)}
+.toolbar .wrap{display:flex;flex-wrap:wrap;align-items:center;gap:10px 18px;padding-top:10px;padding-bottom:10px}
+.toolbar nav{display:flex;gap:4px;flex-wrap:wrap}
+.toolbar nav a{text-decoration:none;color:var(--ink);font-size:.9rem;padding:4px 10px;border-radius:6px}
+.toolbar nav a:hover{background:var(--soft)}
+.seg{display:inline-flex;border:1px solid var(--rule);border-radius:8px;overflow:hidden;margin-left:auto}
+.seg button{font:inherit;font-size:.85rem;border:0;background:transparent;color:var(--ink);padding:5px 12px;cursor:pointer}
+.seg button+button{border-left:1px solid var(--rule)}
+.seg button[aria-pressed="true"]{background:var(--ink);color:var(--surface)}
+.seg-label{font-size:.82rem;color:var(--muted);margin-left:auto}
+.seg-label+.seg{margin-left:0}
+@media (max-width:640px){.toolbar nav{flex-wrap:nowrap;overflow-x:auto;width:100%}.seg-label{display:none}.seg{margin-left:0}.toolbar .wrap{gap:6px}.stage{padding:14px 6px}}
+
+section{padding:40px 0 8px}
+
+/* Verdict */
+.verdict{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:28px;align-items:start}
+@media (max-width:820px){.verdict{grid-template-columns:1fr}}
+.rating{font-size:clamp(1.6rem,3vw,2.2rem);font-weight:700;line-height:1.15;margin:4px 0 12px}
+.rating .sev-word{color:var(--sevc,var(--ink))}
+.bar{display:flex;height:16px;border-radius:4px;overflow:hidden;background:var(--soft);margin:6px 0 10px}
+.bar span{display:block;height:100%}
+.legend{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px 14px;font-size:.9rem}
+.legend div{display:flex;align-items:center;gap:8px}
+.legend i{width:10px;height:10px;border-radius:2px;display:inline-block}
+.legend b{margin-left:auto;font-weight:650}
+.panel{background:var(--surface);border:1px solid var(--rule);border-radius:10px;padding:18px 20px}
+ol.actions{margin:8px 0 0;padding-left:1.3em}
+ol.actions li{margin:6px 0;max-width:76ch}
+
+/* Severity pills */
+.pill{display:inline-flex;align-items:center;gap:6px;font-size:.8rem;font-weight:650;padding:2px 9px;border-radius:999px;border:1px solid currentColor;white-space:nowrap}
+.pill.solid{color:#fff;border-color:transparent}
+.sev-critical{--sevc:var(--critical)} .sev-high{--sevc:var(--high)} .sev-medium{--sevc:var(--medium)} .sev-low{--sevc:var(--low)}
+.pill.sev{color:var(--sevc)}
+.pill.sev.solid{background:var(--sevc);color:#fff}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .pill.sev.solid{color:#10141b}}
+:root[data-theme="dark"] .pill.sev.solid{color:#10141b}
+.pill.conf{color:var(--muted)}
+.pill.conf.needs_verification{color:var(--medium);border-style:dashed}
+
+/* Filters */
+.filters{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:0 0 16px}
+.filters button{font:inherit;font-size:.85rem;border:1px solid var(--rule);background:var(--surface);color:var(--ink);border-radius:999px;padding:3px 12px;cursor:pointer}
+.filters button[aria-pressed="false"]{opacity:.45;text-decoration:line-through}
+.filters select{font:inherit;font-size:.85rem;border:1px solid var(--rule);background:var(--surface);color:var(--ink);border-radius:8px;padding:4px 8px}
+
+/* Finding cards */
+.finding{background:var(--surface);border:1px solid var(--rule);border-left:5px solid var(--sevc);border-radius:10px;margin:0 0 18px;padding:18px 20px 16px}
+.finding.flash{box-shadow:0 0 0 3px var(--sevc)}
+.f-head{display:flex;flex-wrap:wrap;gap:8px 12px;align-items:center}
+.f-id{font-weight:700;color:var(--sevc);font-size:1rem;min-width:2.4em}
+.f-head h3{flex:1 1 320px}
+.f-pattern{font-size:.9rem;color:var(--muted);margin:6px 0 12px}
+.f-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px 26px}
+@media (max-width:760px){.f-grid{grid-template-columns:1fr}}
+.blk h4{font-size:.82rem;font-weight:650;color:var(--muted);margin:0 0 4px}
+.blk p,.blk li{font-size:.95rem}
+.blk ul{margin:0;padding-left:1.15em}
+.blk.wide{grid-column:1/-1}
+.score{display:grid;grid-template-columns:auto 1fr auto;gap:3px 10px;font-size:.88rem;align-items:center;max-width:420px}
+.score .track{height:6px;background:var(--soft);border-radius:3px;overflow:hidden}
+.score .track span{display:block;height:100%;background:var(--sevc)}
+.copyfix{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+@media (max-width:600px){.copyfix{grid-template-columns:1fr}}
+.copyfix div{border:1px solid var(--rule);border-radius:8px;padding:8px 10px;font-size:.92rem}
+.copyfix .was{background:var(--red-wash)}
+.copyfix .now{background:color-mix(in srgb,var(--ok) 10%,transparent)}
+.copyfix small{display:block;font-size:.76rem;color:var(--muted);margin-bottom:2px}
+.linkbtn{font:inherit;font-size:.88rem;background:none;border:0;color:var(--focus);cursor:pointer;padding:0;text-decoration:underline}
+[hidden]{display:none!important}
+
+/* Screens */
+.screen{background:var(--surface);border:1px solid var(--rule);border-radius:10px;margin:0 0 22px;overflow:hidden}
+.screen-head{display:flex;flex-wrap:wrap;gap:8px 14px;align-items:center;padding:14px 18px;border-bottom:1px solid var(--rule)}
+.screen-head h3{flex:1 1 260px}
+.tabs{display:inline-flex;border:1px solid var(--rule);border-radius:8px;overflow:hidden}
+.tabs button{font:inherit;font-size:.85rem;border:0;background:transparent;color:var(--ink);padding:5px 12px;cursor:pointer}
+.tabs button+button{border-left:1px solid var(--rule)}
+.tabs button[aria-selected="true"]{background:var(--ink);color:var(--surface)}
+.stage{padding:22px 18px;background:repeating-linear-gradient(45deg,var(--soft) 0 10px,transparent 10px 20px);display:flex;justify-content:center;overflow-x:auto}
+.device{background:#fff;color:#111;border-radius:14px;box-shadow:0 1px 0 var(--rule),0 0 0 1px var(--rule);position:relative}
+.device.mobile{width:min(375px,100%);border-radius:28px;padding:14px 0;border:8px solid #1d2230}
+.device.desktop{width:100%;max-width:960px;border-radius:8px;padding-top:26px}
+.device.desktop::before{content:"";position:absolute;top:9px;left:12px;width:42px;height:9px;border-radius:5px;background:radial-gradient(circle,#ef6a5e 4px,transparent 4.5px) 0 0/14px 9px repeat-x}
+.evidence{position:relative;display:inline-block;max-width:100%}
+.evidence img{display:block;max-width:100%;height:auto;border-radius:6px;border:1px solid var(--rule)}
+.ebox{position:absolute;border:2px solid var(--sevc);border-radius:3px;background:color-mix(in srgb,var(--sevc) 10%,transparent);cursor:pointer}
+.ebox span,.tag{position:absolute;top:-11px;right:-11px;background:var(--sevc);color:#fff;font:700 11px/1 var(--font);padding:4px 6px;border-radius:999px;white-space:nowrap}
+.screen-foot{padding:10px 18px;border-top:1px solid var(--rule);font-size:.88rem;color:var(--muted);display:flex;flex-wrap:wrap;gap:6px 14px}
+.legend-inline{display:inline-flex;align-items:center;gap:6px}
+.legend-inline i{width:14px;height:10px;border:2px solid var(--critical);border-radius:2px;display:inline-block}
+.legend-inline i.fix{border-color:var(--ok)}
+
+/* Coverage */
+table.cov{width:100%;border-collapse:collapse;background:var(--surface);border:1px solid var(--rule);border-radius:10px;overflow:hidden;font-size:.93rem}
+.cov-wrap{overflow-x:auto}
+table.cov th,table.cov td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--rule);vertical-align:top}
+table.cov th{font-size:.82rem;color:var(--muted);font-weight:650;background:var(--soft)}
+table.cov tr:last-child td{border-bottom:0}
+.st{font-weight:650;font-size:.86rem;white-space:nowrap}
+.st.found{color:var(--sevc)} .st.clear{color:var(--ok)} .st.not_verifiable{color:var(--medium)} .st.not_assessed{color:var(--na)}
+.method ul{padding-left:1.2em;margin:0}
+.method li{margin:4px 0;max-width:80ch}
+footer{padding:30px 0 50px;color:var(--muted);font-size:.86rem;border-top:1px solid var(--rule);margin-top:30px}
+.disclaimer{border:1px solid var(--rule);border-radius:10px;padding:14px 16px;background:var(--surface);color:var(--ink);font-size:.92rem;margin-top:18px}
+
+@media print{
+  .toolbar,.filters,.tabs,.linkbtn{display:none!important}
+  body{background:#fff;color:#000}
+  .finding,.screen,.panel{break-inside:avoid;box-shadow:none}
+  [data-role-block]{display:block!important}
+  section{padding-top:18px}
+}
+</style>
+</head>
+<body>
+<header class="top"><div class="wrap" id="hdr"></div></header>
+<div class="toolbar"><div class="wrap">
+  <nav aria-label="Sections">
+    <a href="#summary">Summary</a><a href="#findings">Findings</a><a href="#screens">Screens</a><a href="#coverage">Coverage</a><a href="#method">Method</a>
+  </nav>
+  <span class="seg-label" id="roleLabel">View for</span>
+  <div class="seg" role="group" aria-labelledby="roleLabel" id="roleSeg">
+    <button data-role="all" aria-pressed="true">Everyone</button>
+    <button data-role="pm" aria-pressed="false">Product</button>
+    <button data-role="design" aria-pressed="false">Design</button>
+    <button data-role="dev" aria-pressed="false">Engineering</button>
+  </div>
+</div></div>
+
+<main class="wrap">
+  <section id="summary" aria-labelledby="sumH"></section>
+  <section id="findings" aria-labelledby="finH">
+    <h2 id="finH">Findings</h2>
+    <div class="filters" id="filters"></div>
+    <div id="findingList"></div>
+    <p class="muted" id="noMatch" hidden>No findings match these filters.</p>
+  </section>
+  <section id="screens" aria-labelledby="scrH">
+    <h2 id="scrH">Screens: current and compliant</h2>
+    <p class="muted">Each screen is a lightweight recreation of the audited UI. Red outlines mark the problems as they are today. Switch to “Compliant” to see the recommended fix in place. Select a marker to jump to its finding.</p>
+    <div id="screenList"></div>
+  </section>
+  <section id="coverage" aria-labelledby="covH">
+    <h2 id="covH">Coverage of the 13 specified dark patterns</h2>
+    <p class="muted" id="covIntro"></p>
+    <div class="cov-wrap"><table class="cov" id="covTable"></table></div>
+  </section>
+  <section id="method" class="method" aria-labelledby="metH"></section>
+</main>
+<footer><div class="wrap" id="foot"></div></footer>
+
+<script>
+window.AUDIT = /*__AUDIT_JSON__*/null;
+window.PATTERNS = /*__PATTERNS_JSON__*/null;
+</script>
+<script>
+(function(){
+  const A = window.AUDIT, P = window.PATTERNS;
+  if (!A || !P) { document.body.innerHTML = '<p style="padding:40px">No audit data was embedded. Build this page with scripts/build_report.py.</p>'; return; }
+  const SEV = ['critical','high','medium','low'];
+  const SEV_LABEL = {critical:'Critical',high:'High',medium:'Medium',low:'Low'};
+  const SEV_ACTION = {
+    critical:'Release-blocking: fix before the next deploy, or hotfix if live.',
+    high:'Fix in the current sprint.',
+    medium:'Schedule for the next planned release.',
+    low:'Backlog or design-system guidance.'
+  };
+  const SEV_CONSEQ = {
+    critical:'Highest likelihood of a CCPA notice. Exposure to corrective directions under CPA s.20 (discontinue, modify the interface, refund) and penalties under s.21 of up to ₹10 lakh for a first contravention and up to ₹50 lakh for each subsequent one. Where the UI makes a false claim, criminal exposure under s.89 is possible. Fixing it after a notice does not erase past liability.',
+    high:'Clear exposure if a complaint or regulatory sweep reaches this flow: CPA s.20 directions and s.21 penalties (up to ₹10 lakh first, ₹50 lakh subsequent), plus consumer complaints and reputational damage from published orders.',
+    medium:'Real but lower-impact exposure. Likely to be cited alongside more serious findings in any CCPA action, and it erodes user trust.',
+    low:'Low legal exposure on its own. Mainly a trust and quality issue, but it can be counted as part of a pattern of conduct.'
+  };
+  const CONF_LABEL = {confirmed:'Confirmed',likely:'Likely',needs_verification:'Needs verification'};
+  const AMP_LABEL = {default_for_all:'Default for all users',vulnerable_audience:'Vulnerable audience',stacked:'Stacked with another pattern',hard_to_reverse:'Hard to reverse'};
+  const pById = Object.fromEntries(P.patterns.map(p => [p.id, p]));
+  const findings = A.findings || [];
+  const fById = Object.fromEntries(findings.map(f => [f.id, f]));
+  const screens = A.screens || [];
+  const sById = Object.fromEntries(screens.map(s => [s.id, s]));
+
+  const el = (tag, attrs, ...kids) => {
+    const n = document.createElement(tag);
+    for (const [k, v] of Object.entries(attrs || {})) {
+      if (v == null || v === false) continue;
+      if (k === 'class') n.className = v; else if (k === 'text') n.textContent = v;
+      else if (k.startsWith('on')) n.addEventListener(k.slice(2), v); else n.setAttribute(k, v === true ? '' : v);
+    }
+    for (const k of kids.flat(Infinity)) if (k != null && k !== false) n.append(k.nodeType ? k : document.createTextNode(String(k)));
+    return n;
+  };
+  const sevPill = (s, solid) => el('span', {class:`pill sev sev-${s}${solid ? ' solid' : ''}`}, SEV_LABEL[s]);
+  const worst = list => SEV.find(s => list.includes(s));
+  const roleBlock = (roles, ...kids) => el('div', {class:'blk', 'data-role-block': roles}, ...kids);
+
+  // Header
+  const m = A.meta || {};
+  document.title = (m.title || 'Dark pattern audit') + (m.target_name ? ' · ' + m.target_name : '');
+  const hdr = document.getElementById('hdr');
+  hdr.append(
+    el('h1', {}, m.title || 'Dark pattern audit'),
+    el('div', {class:'target'}, m.target_name ? m.target_name + ' ' : '', m.target ? el('span', {}, '(', /^https?:/.test(m.target) ? el('a', {href:m.target, target:'_blank', rel:'noopener'}, m.target) : m.target, ')') : ''),
+    el('div', {class:'meta'},
+      m.target_type ? el('span', {}, 'Source ', el('b', {}, m.target_type === 'figma' ? 'Figma designs' : m.target_type === 'screenshots' ? 'Screenshots' : 'Live website')) : null,
+      m.audited_on ? el('span', {}, 'Audited ', el('b', {}, m.audited_on)) : null,
+      m.auditor ? el('span', {}, 'By ', el('b', {}, m.auditor)) : null,
+      el('span', {}, 'Framework ', el('b', {}, 'CCPA Dark Patterns Guidelines 2023'))),
+    (m.scope && m.scope.length) ? el('div', {class:'chips', 'aria-label':'Journeys in scope'}, m.scope.map(s => el('span', {class:'chip'}, s))) : null
+  );
+
+  // Summary
+  const counts = Object.fromEntries(SEV.map(s => [s, findings.filter(f => f.severity === s).length]));
+  const top = worst(findings.map(f => f.severity));
+  const sum = document.getElementById('summary');
+  const total = findings.length || 1;
+  const sm = A.summary || {};
+  sum.append(el('h2', {id:'sumH'}, 'Summary'),
+    el('div', {class:'verdict'},
+      el('div', {},
+        el('div', {class:'rating' + (top ? ' sev-' + top : '')},
+          findings.length ? el('span', {}, `${findings.length} finding${findings.length > 1 ? 's' : ''}, highest severity `, el('span', {class:'sev-word'}, SEV_LABEL[top])) : 'No dark patterns found in the audited scope'),
+        sm.verdict ? el('p', {}, sm.verdict) : null,
+        sm.overview ? el('p', {class:'muted'}, sm.overview) : null,
+        m.applicability ? el('p', {class:'small muted'}, m.applicability) : null),
+      el('div', {class:'panel'},
+        el('div', {class:'small muted'}, 'Findings by severity'),
+        el('div', {class:'bar', role:'img', 'aria-label': SEV.map(s => `${counts[s]} ${s}`).join(', ')},
+          SEV.filter(s => counts[s]).map(s => el('span', {class:'sev-' + s, style:`width:${counts[s] / total * 100}%;background:var(--sevc)`}))),
+        el('div', {class:'legend'}, SEV.map(s => el('div', {class:'sev-' + s}, el('i', {style:'background:var(--sevc)'}), SEV_LABEL[s], el('b', {}, counts[s])))),
+        el('div', {class:'small muted', style:'margin-top:10px'},
+          `${findings.filter(f => f.confidence === 'confirmed').length} confirmed, ${findings.filter(f => f.confidence === 'likely').length} likely, ${findings.filter(f => f.confidence === 'needs_verification').length} need verification`))
+    ),
+    (sm.top_actions && sm.top_actions.length) ? el('div', {class:'panel', style:'margin-top:20px'},
+      el('h3', {}, 'Fix first'), el('ol', {class:'actions'}, sm.top_actions.map(a => el('li', {}, a)))) : null
+  );
+
+  // Filters
+  const state = {sev: new Set(SEV), pattern: 'all', conf: 'all', role: 'all'};
+  const filt = document.getElementById('filters');
+  SEV.forEach(s => { if (!counts[s]) return;
+    filt.append(el('button', {class:'sev-' + s, 'aria-pressed':'true', style:'border-color:var(--sevc)', onclick: e => {
+      const on = e.currentTarget.getAttribute('aria-pressed') === 'true';
+      e.currentTarget.setAttribute('aria-pressed', on ? 'false' : 'true'); on ? state.sev.delete(s) : state.sev.add(s); apply(); }}, `${SEV_LABEL[s]} (${counts[s]})`)); });
+  const usedPatterns = [...new Set(findings.map(f => f.pattern))];
+  const pSel = el('select', {'aria-label':'Filter by pattern', onchange: e => { state.pattern = e.target.value; apply(); }},
+    el('option', {value:'all'}, 'All patterns'), usedPatterns.map(id => el('option', {value:id}, pById[id] ? pById[id].name : id)));
+  const cSel = el('select', {'aria-label':'Filter by confidence', onchange: e => { state.conf = e.target.value; apply(); }},
+    el('option', {value:'all'}, 'Any confidence'), Object.entries(CONF_LABEL).map(([k, v]) => el('option', {value:k}, v)));
+  filt.append(pSel, cSel);
+
+  // Finding cards
+  const list = document.getElementById('findingList');
+  const order = f => SEV.indexOf(f.severity) * 100 - (f.score_total || 0);
+  [...findings].sort((a, b) => order(a) - order(b) || a.id.localeCompare(b.id, undefined, {numeric:true})).forEach(f => {
+    const p = pById[f.pattern] || {name:f.pattern, clause:''};
+    const sc = f.score || {};
+    const fix = f.fix || {};
+    const scoreRows = [['Harm', sc.harm, 4], ['Match to the law', sc.match, 3], ['Journey position', sc.position, 2], ['Amplifiers', (sc.amplifiers || []).length, 3]];
+    const card = el('article', {class:`finding sev-${f.severity}`, id:'f-' + f.id, 'data-sev':f.severity, 'data-pattern':f.pattern, 'data-conf':f.confidence},
+      el('div', {class:'f-head'},
+        el('span', {class:'f-id'}, f.id), el('h3', {}, f.title), sevPill(f.severity, true),
+        el('span', {class:'pill conf ' + f.confidence}, CONF_LABEL[f.confidence] || f.confidence)),
+      el('div', {class:'f-pattern'}, `${p.number ? p.number + '. ' : ''}${p.name}${f.limb ? ', ' + f.limb : ''}`, p.clause ? ` (${p.clause})` : '',
+        f.screen_id && sById[f.screen_id] ? el('span', {}, ' on ', el('button', {class:'linkbtn', onclick: () => showOnScreen(f)}, sById[f.screen_id].name)) : null),
+      el('div', {class:'f-grid'},
+        roleBlock('pm design dev', el('h4', {}, 'What we found'), el('p', {}, f.evidence)),
+        roleBlock('pm design dev', el('h4', {}, 'Why it is a problem'), el('p', {}, f.why),
+          (f.provisions && f.provisions.length) ? el('ul', {}, f.provisions.map(x => el('li', {}, x))) : null),
+        roleBlock('pm', el('h4', {}, 'Severity score ' + (f.score_total != null ? `${f.score_total} of 12` : '')),
+          el('div', {class:'score'}, scoreRows.map(([k, v, mx]) => [el('span', {}, k), el('span', {class:'track'}, el('span', {style:`width:${(v || 0) / mx * 100}%`})), el('span', {}, `${v || 0}/${mx}`)])),
+          (sc.amplifiers && sc.amplifiers.length) ? el('p', {class:'small muted', style:'margin-top:6px'}, sc.amplifiers.map(a => AMP_LABEL[a] || a).join('; ')) : null,
+          sc.rationale ? el('p', {class:'small muted'}, sc.rationale) : null,
+          f.override_reason ? el('p', {class:'small'}, 'Severity override: ' + f.override_reason) : null),
+        roleBlock('pm', el('h4', {}, 'What could happen'), el('p', {}, f.consequences || SEV_CONSEQ[f.severity]),
+          f.consequences ? el('p', {class:'small muted'}, SEV_CONSEQ[f.severity]) : null,
+          el('p', {class:'small'}, el('b', {}, 'Priority: '), SEV_ACTION[f.severity]),
+          f.precedent ? el('p', {class:'small muted'}, 'Precedent: ' + f.precedent) : null,
+          f.verify ? el('p', {class:'small'}, el('b', {}, 'To verify: '), f.verify) : null),
+        roleBlock('pm design dev', el('h4', {}, 'How to fix'), el('p', {}, fix.summary || ''),
+          (fix.copy_before || fix.copy_after) ? el('div', {class:'copyfix'},
+            el('div', {class:'was'}, el('small', {}, 'Current copy'), fix.copy_before || '—'),
+            el('div', {class:'now'}, el('small', {}, 'Recommended copy'), fix.copy_after || '—')) : null),
+        roleBlock('dev design', el('h4', {}, 'Acceptance criteria'),
+          (fix.acceptance_criteria && fix.acceptance_criteria.length) ? el('ul', {}, fix.acceptance_criteria.map(x => el('li', {}, x))) : el('p', {class:'muted'}, 'None specified.'),
+          fix.dev_notes ? el('p', {class:'small muted', style:'margin-top:6px'}, fix.dev_notes) : null),
+        fix.owners && fix.owners.length ? roleBlock('pm design dev', el('p', {class:'small muted'}, 'Owners: ' + fix.owners.join(', '))) : null
+      ));
+    list.append(card);
+  });
+
+  // Role filter
+  document.querySelectorAll('#roleSeg button').forEach(b => b.addEventListener('click', () => {
+    document.querySelectorAll('#roleSeg button').forEach(x => x.setAttribute('aria-pressed', x === b ? 'true' : 'false'));
+    state.role = b.dataset.role; apply();
+  }));
+  function apply(){
+    let shown = 0;
+    document.querySelectorAll('.finding').forEach(c => {
+      const ok = state.sev.has(c.dataset.sev) && (state.pattern === 'all' || c.dataset.pattern === state.pattern) && (state.conf === 'all' || c.dataset.conf === state.conf);
+      c.hidden = !ok; if (ok) shown++;
+    });
+    document.getElementById('noMatch').hidden = shown > 0;
+    document.querySelectorAll('[data-role-block]').forEach(b => { b.hidden = state.role !== 'all' && !b.dataset.roleBlock.split(' ').includes(state.role); });
+  }
+
+  // Screens
+  const SHADOW_CSS = `:host{display:block}
+  .root{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;font-size:14px;line-height:1.4;color:#111;position:relative;padding:12px 16px 16px}
+  [data-dp]{outline:2.5px solid var(--mk,#B42318);outline-offset:3px;border-radius:2px;cursor:pointer}
+  [data-fix]{outline:2.5px solid #1E7A46;outline-offset:3px;border-radius:2px}
+  .mk{position:absolute;z-index:9;transform:translate(40%,-60%);background:var(--mk,#B42318);color:#fff;font:700 11px/1 -apple-system,"Segoe UI",Arial,sans-serif;padding:4px 6px;border-radius:999px;cursor:pointer;border:0;white-space:nowrap}
+  .mk.fix{background:#1E7A46}
+  .pulse{animation:p 1.2s ease 2}@keyframes p{50%{outline-width:6px}}
+  @media (prefers-reduced-motion: reduce){.pulse{animation:none}}`;
+  const SEVHEX = {critical:'#B42318', high:'#C4510E', medium:'#946800', low:'#2F6690'};
+  const screenApi = {};
+  const scrList = document.getElementById('screenList');
+  screens.forEach(s => {
+    const views = [];
+    if (s.current_html) views.push(['current', 'Current']);
+    if (s.compliant_html) views.push(['compliant', 'Compliant']);
+    if (s.image) views.push(['evidence', 'Evidence']);
+    const related = findings.filter(f => f.screen_id === s.id);
+    const tabs = el('div', {class:'tabs', role:'tablist', 'aria-label':'View of ' + s.name});
+    const stage = el('div', {class:'stage', role:'tabpanel'});
+    const card = el('div', {class:'screen', id:'s-' + s.id},
+      el('div', {class:'screen-head'}, el('h3', {}, s.name),
+        related.length ? el('span', {class:'small muted'}, related.map(f => f.id).join(', ')) : null, tabs),
+      stage,
+      el('div', {class:'screen-foot'},
+        el('span', {class:'legend-inline'}, el('i'), 'Problem as audited'),
+        el('span', {class:'legend-inline'}, el('i', {class:'fix'}), 'Fixed in compliant version'),
+        s.source ? (/^https?:/.test(s.source) ? el('a', {href:s.source, target:'_blank', rel:'noopener'}, 'Open source') : el('span', {}, s.source)) : null,
+        s.notes ? el('span', {}, s.notes) : null));
+    scrList.append(card);
+
+    function render(view){
+      tabs.querySelectorAll('button').forEach(b => b.setAttribute('aria-selected', b.dataset.v === view ? 'true' : 'false'));
+      stage.innerHTML = '';
+      if (view === 'evidence') {
+        const wrap = el('div', {class:'evidence', style:`width:${s.device === 'desktop' ? 'min(100%,960px)' : 'min(100%,400px)'}`}, el('img', {src:s.image, alt:'Evidence screenshot of ' + s.name, style:'width:100%'}));
+        related.forEach(f => (f.boxes || []).forEach(bx => {
+          const b = el('div', {class:`ebox sev-${f.severity}`, style:`left:${bx.x}%;top:${bx.y}%;width:${bx.w}%;height:${bx.h}%`, title:f.title, onclick: () => goFinding(f.id)}, el('span', {}, f.id));
+          wrap.append(b);
+        }));
+        stage.append(wrap); return;
+      }
+      const dev = el('div', {class:'device ' + (s.device === 'desktop' ? 'desktop' : 'mobile')});
+      const host = el('div');
+      dev.append(host); stage.append(dev);
+      const root = host.attachShadow({mode:'open'});
+      root.innerHTML = `<style>${SHADOW_CSS}</style><div class="root">${view === 'compliant' ? s.compliant_html : s.current_html}</div>`;
+      const r = root.querySelector('.root');
+      const place = () => {
+        r.querySelectorAll('.mk').forEach(x => x.remove());
+        const rb = r.getBoundingClientRect();
+        const attr = view === 'compliant' ? 'data-fix' : 'data-dp';
+        r.querySelectorAll(`[${attr}]`).forEach(node => {
+          const ids = node.getAttribute(attr).split(/\s+/).filter(Boolean);
+          const sev = worst(ids.map(i => fById[i] ? fById[i].severity : 'low')) || 'low';
+          if (view !== 'compliant') node.style.setProperty('--mk', SEVHEX[sev]);
+          node.addEventListener('click', ev => { ev.preventDefault(); goFinding(ids[0]); });
+          const nb = node.getBoundingClientRect();
+          const mk = document.createElement('button');
+          mk.className = 'mk' + (view === 'compliant' ? ' fix' : '');
+          mk.textContent = (view === 'compliant' ? 'Fix ' : '') + ids.join(' ');
+          mk.title = ids.map(i => fById[i] ? fById[i].title : i).join('; ');
+          if (view !== 'compliant') mk.style.setProperty('--mk', SEVHEX[sev]);
+          mk.style.left = (nb.right - rb.left - 20) + 'px'; mk.style.top = (nb.top - rb.top) + 'px';
+          mk.addEventListener('click', () => goFinding(ids[0]));
+          r.append(mk);
+        });
+      };
+      requestAnimationFrame(place);
+      new ResizeObserver(place).observe(r);
+      screenApi[s.id].root = r; screenApi[s.id].view = view;
+    }
+    views.forEach(([v, label]) => tabs.append(el('button', {role:'tab', 'data-v':v, 'aria-selected':'false', onclick: () => render(v)}, label)));
+    screenApi[s.id] = {render, root:null};
+    if (views.length) render(views[0][0]); else stage.append(el('p', {class:'muted'}, 'No visual for this screen.'));
+  });
+
+  function goFinding(id){
+    const c = document.getElementById('f-' + id); if (!c) return;
+    if (c.hidden) { state.sev = new Set(SEV); state.pattern = 'all'; state.conf = 'all';
+      filt.querySelectorAll('button').forEach(b => b.setAttribute('aria-pressed', 'true')); pSel.value = 'all'; cSel.value = 'all'; apply(); }
+    c.scrollIntoView({block:'start'}); c.classList.add('flash'); setTimeout(() => c.classList.remove('flash'), 1600);
+  }
+  function showOnScreen(f){
+    const api = screenApi[f.screen_id]; const s = sById[f.screen_id]; if (!api || !s) return;
+    api.render(s.current_html ? 'current' : (s.image ? 'evidence' : 'compliant'));
+    const card = document.getElementById('s-' + f.screen_id); card.scrollIntoView({block:'start'});
+    const r = api.root;
+    if (r) r.querySelectorAll('[data-dp]').forEach(n => { if (n.getAttribute('data-dp').split(/\s+/).includes(f.id)) { n.classList.add('pulse'); setTimeout(() => n.classList.remove('pulse'), 2600); } });
+  }
+
+  // Coverage
+  const cov = A.coverage || {};
+  const covT = document.getElementById('covTable');
+  covT.append(el('thead', {}, el('tr', {}, el('th', {}, '#'), el('th', {}, 'Pattern'), el('th', {}, 'Result'), el('th', {}, 'Notes'))));
+  const tb = el('tbody');
+  const ST_LABEL = {clear:'No issues seen', not_verifiable:'Couldn’t verify', not_assessed:'Not assessed'};
+  let nFound = 0, nClear = 0, nNV = 0;
+  P.patterns.forEach(p => {
+    const fs = findings.filter(f => f.pattern === p.id);
+    const c = cov[p.id] || {};
+    let cell;
+    if (fs.length) { nFound++; const w = worst(fs.map(f => f.severity));
+      cell = el('span', {class:`st found sev-${w}`}, `Found (${fs.length}), worst ${SEV_LABEL[w].toLowerCase()}`); }
+    else { const st = c.status && c.status !== 'found' ? c.status : 'not_assessed'; if (st === 'clear') nClear++; if (st === 'not_verifiable') nNV++;
+      cell = el('span', {class:'st ' + st}, ST_LABEL[st] || st); }
+    tb.append(el('tr', {}, el('td', {}, p.number), el('td', {}, el('div', {style:'font-weight:600'}, p.name), el('div', {class:'small muted'}, p.clause + '. ' + p.summary)),
+      el('td', {}, cell), el('td', {}, c.note || '', fs.length ? el('div', {class:'small'}, fs.map((f, i) => [i ? ', ' : '', el('a', {href:'#f-' + f.id}, f.id)])) : null)));
+  });
+  covT.append(tb);
+  document.getElementById('covIntro').textContent = `${nFound} of 13 patterns found, ${nClear} checked with no issues, ${nNV} couldn’t be verified from the available evidence, ${13 - nFound - nClear - nNV} not assessed.`;
+
+  // Method
+  const met = document.getElementById('method');
+  const mm = A.method || {};
+  met.append(el('h2', {id:'metH'}, 'Method and limitations'),
+    mm.capture ? el('p', {}, mm.capture) : null,
+    (mm.limitations && mm.limitations.length) ? el('div', {}, el('h3', {style:'margin:14px 0 6px'}, 'Limitations'), el('ul', {}, mm.limitations.map(x => el('li', {}, x)))) : null,
+    (mm.sources && mm.sources.length) ? el('div', {}, el('h3', {style:'margin:14px 0 6px'}, 'Sources'), el('ul', {}, mm.sources.map(x => el('li', {}, x)))) : null,
+    el('div', {}, el('h3', {style:'margin:14px 0 6px'}, 'How severity is scored'),
+      el('p', {class:'small'}, 'Each finding is scored on harm (0–4), how closely it matches the law or a published CCPA order (0–3), where it sits in the journey (0–2), and up to three amplifiers: default for all users, vulnerable audience, stacked with another pattern, or hard to reverse. Totals of 10–12 are Critical, 7–9 High, 4–6 Medium and 1–3 Low. Confidence is reported separately. A Critical finding that needs verification is a priority to check, not a confirmed breach.')),
+    el('div', {class:'disclaimer'}, A.disclaimer || 'This audit is a design-compliance review against the CCPA Guidelines for Prevention and Regulation of Dark Patterns, 2023 and related consumer-protection law. It is not legal advice. Have counsel confirm before relying on it for legal decisions.'));
+  document.getElementById('foot').textContent = `Generated ${m.generated_at || ''} with the dark-pattern-auditor skill.`;
+
+  apply();
+  if (location.hash && location.hash.startsWith('#f-')) setTimeout(() => goFinding(location.hash.slice(3)), 50);
+})();
+</script>
+</body>
+</html>
